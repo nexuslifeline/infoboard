@@ -9,11 +9,11 @@
                             <span class="clear"> <span class="block m-t-xs"> <strong class="font-bold"></strong>
                              </span> <span class="text-muted text-xs block">Software Developer <b class="caret"></b></span> </span> </a>
                         <ul class="dropdown-menu animated fadeInRight m-t-xs">
-                            <li><a href="profile.html">Profile</a></li>
-                            <li><a href="contacts.html">Contacts</a></li>
-                            <li><a href="mailbox.html">Mailbox</a></li>
+                            <li><a href="#>Profile</a></li>
+                            <li><a href="#">Contacts</a></li>
+                            <li><a href="#">Mailbox</a></li>
                             <li class="divider"></li>
-                            <li><a href="login.html">Logout</a></li>
+                            <li><a href="#">Logout</a></li>
                         </ul>
                     </div>
                     <div class="logo-element">
@@ -29,7 +29,7 @@
                 <li>
                     <a href="#"><i class="fa fa-pencil-square-o"></i> <span class="nav-label">Publish</span><span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
-                        <li><a href="">Accouncement</a></li>
+                        <li><a href="Announcements">Accouncement</a></li>
                         <li><a href="">Task</a></li>
 
                     </ul>
