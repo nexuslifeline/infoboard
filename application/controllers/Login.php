@@ -11,8 +11,12 @@ class Login extends MY_Controller {
 
     function index()
     {
+
+
+    	$data['item'] =' Login';
+    	$data['name'] =' Infoboard';
         $this->load->helper(array('form'));
-        $this->load->view('login');
+        $this->load->view('login',$data);
     }
 
 
