@@ -26,6 +26,7 @@
                     <a href="Dashboard"><i class="fa fa-th-large"></i> <span class="nav-label">Dashboard</span></span></a>                   
                 </li>
 
+
                 <li>
                     <a href="#"><i class="fa fa-pencil-square-o"></i> <span class="nav-label">Publish</span><span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
@@ -34,7 +35,6 @@
 
                     </ul>
                 </li>
-               
                
 
                  <li>
