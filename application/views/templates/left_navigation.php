@@ -74,7 +74,7 @@
                   <li>
                     <a href="#"><i class="fa fa-gears"></i> <span class="nav-label">Setting</span><span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
-                        <li><a href="">User Group Setting </a></li>
+                        <li><a href="UserGroupSetting">User Group Setting </a></li>
                         <li><a href="">User Profile</a></li>
                         <li><a href="">Company Setting</a></li>
 

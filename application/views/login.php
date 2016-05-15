@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title> Infoboard | Login Page </title>
+    <title> <?php echo $item  ?> </title>
 
 
      <?php include('assets/includes/global_css.html'); ?>
@@ -98,8 +98,8 @@
 
 
         <div class="col-md-6">
-            <h3 class="font-bold">Infoboard System  System</h3>
-            <img style="border-radius: 3px" src="assets/img/laptop.png" class="img-responsive" alt="" />
+            <h3 class="font-bold">Infoboard System</h3>
+            <img style="border-radius: 3px" src="images/spcf-logo-main.png" class="img-responsive" alt="" />
 
             <p>
 
