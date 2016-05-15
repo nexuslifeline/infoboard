@@ -188,7 +188,7 @@
                                                   <div class="form-group">
                                                     <label>Email Address * </label>
                                                     <input class="form-control" type="email" name="email" id="email" placeholder="Email Address"  data-container="body" data-trigger="manual" data-toggle="tooltip" title="Email Address is required."data-message="Please make sure you enter Email Address." required >
-                                                </div>
+                                               </div>
 
                                                  <div class="form-group">
                                                     <label>Password * </label>
