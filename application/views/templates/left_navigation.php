@@ -26,6 +26,7 @@
                     <a href="Dashboard"><i class="fa fa-th-large"></i> <span class="nav-label">Dashboard</span></span></a>                   
                 </li>
 
+
                 <li>
                     <a href="#"><i class="fa fa-pencil-square-o"></i> <span class="nav-label">Publish</span><span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
@@ -34,7 +35,6 @@
 
                     </ul>
                 </li>
-               
                
 
                  <li>
@@ -74,7 +74,7 @@
                   <li>
                     <a href="#"><i class="fa fa-gears"></i> <span class="nav-label">Setting</span><span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
-                        <li><a href="">User Group Setting </a></li>
+                        <li><a href="UserGroupSetting">User Group Setting </a></li>
                         <li><a href="">User Profile</a></li>
                         <li><a href="">Company Setting</a></li>
 

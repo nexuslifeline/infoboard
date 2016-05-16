@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title> Infoboard | Login Page </title>
+    <title> <?php echo $item  ?> </title>
 
 
     <!-- Checkbox / Radio -->
@@ -76,15 +76,15 @@
 
 <div class="loginColumns animated fadeInDown">
  
-
-
-
 <div class="pen-title">
-<center>
-<img style="border-radius: 3px "  src="images/spcf-logo-main.png" class="img-responsive" alt="" />
-</center>
 
-  <span>INFOBOARD SYSTEM </span>
+<div style="border-radius: 3px" align="center">
+
+<img  src="images/spcf-logo-main.png" class="img-responsive" alt="" />
+</div>
+
+            <h3 class="font-bold">Infoboard System</h3>
+   
 </div>
 
  
@@ -134,16 +134,20 @@
   <div class="form">
     <h2>Create Student account</h2>
   
+
+
+
     <form id="frm-register">
 
      <input  type="email" placeholder="Email">
      <input  type="text" placeholder="Username">
       <input type="password" placeholder="Password">
 
-    </form>
-<button id="btn-register"  class="btn btn-primary block full-width m-b" >Register</button>
+<button type="submit" id="btn-register"  class="btn btn-primary block full-width m-b" >Register</button>
 
    
+    </form>
+
   </div>
 
 

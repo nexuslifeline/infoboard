@@ -4,7 +4,7 @@ $(document).ready(function(){
 
 
 
-    $('#btn-register').click(function(){
+    $('#btn-register').submit(function(){
 
 
         if(validateRequiredFields()){

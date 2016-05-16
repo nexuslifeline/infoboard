@@ -80,7 +80,7 @@
 
 <?php
  
-  //print_r($this->session->userdata)
+  print_r($this->session->userdata)
 
 ?>
 
@@ -154,7 +154,7 @@
                                         Publish to Department
                                     </p>
 
-                                    <select id="cbo_departments" class="col-lg-12  col-md-12 col-sm-12 col-xs-12" multiple="multiple">
+                                    <select id="cbo_departments" class="col-lg-12 col-md-12 col-sm-12 col-xs-12" multiple="multiple">
                                         <?php foreach($departments as $row){ ?>
                                             <option value="<?php echo($row->department_id); ?>"><?php echo($row->department_title); ?></option>
                                         <?php } ?>
@@ -196,78 +196,36 @@
 <br /><br />
                             <div class="row">
                                 <div class="col-lg-12 col-md-12 col-sm-12">
-                                    <div class="ibox-content inspinia-timeline">
-                                        <div class="timeline-item">
-                                            <div class="row">
-                                                <div class="col-lg-3 col-sm-3 col-xs-3 date">
-                                                    <i class="fa fa-briefcase"></i>
-                                                    6:00 am
-                                                    <br/>
-                                                    <small class="text-navy">2 hour ago</small>
-                                                </div>
-                                                <div class="col-lg-9 col-sm-9 col-xs-9 content no-top-border">
-                                                    <p class="m-b-xs"><strong>No Classes tommorow!</strong> <small class="text-navy">Posted by Paul Christain Rueda</small></p>
+                                    <div id="div-announcements" class="ibox-content inspinia-timeline">
 
-                                                    <p>Classes suspended tommorow.</p>
+                                        <?php foreach($announcements as $row){  ?>
 
+                                            <div class="timeline-item" id="<?php echo $row->announce_id; ?>">
+                                                <div class="row">
+                                                    <div class="col-lg-3 col-sm-3 col-xs-3 date">
+                                                        <i class="fa fa-file-text"></i>
+                                                        <span id="day-posted"><?php echo $row->DayPosted; ?></span>
+                                                        <br/>
+                                                        <span id="time-posted"><?php echo $row->TimePosted; ?></span>
+                                                        <br/>
+                                                        <small id="time-description" class="text-navy"><?php echo $row->TimeDescription; ?></small>
+                                                    </div>
+                                                    <div class="col-lg-9 col-sm-9 col-xs-9 content no-top-border">
 
-                                                </div>
-                                            </div>
-                                        </div>
+                                                       <?php echo $row->announce_description; ?>
 
+                                                        <br /><br />
+                                                        <small class="text-navy">Posted by : Paul Christain Rueda</small>
+                                                        <br />
+                                                        <small class="text-navy">Departments : <?php echo $row->DepartmentList; ?></small>
+                                                        <br />
+                                                        <br />
+                                                    </div>
 
-                                        <div class="timeline-item">
-                                            <div class="row">
-                                                <div class="col-lg-3 col-sm-3 col-xs-3 date">
-                                                    <i class="fa fa-file-text"></i>
-                                                    7:00 am
-                                                    <br/>
-                                                    <small class="text-navy">3 hour ago</small>
-                                                </div>
-
-                                                <div class="col-lg-9 col-sm-9 col-xs-9 content">
-                                                    <p class="m-b-xs"><strong>Using LINQ</strong> <small class="text-navy">Posted by Paul Christain Rueda</small></p>
-                                                    <p>Although you can use SQL with relational database objects, LINQ can also query object types
-                                                        where the data source is not a database. You can use LINQ to query an object type, including
-                                                        arrays, class objects, and XML, in addition to relational databases. Visual Studio incorporates
-                                                        the LINQ query engine directly but also has defi ned an extension defi nition that enables third-party data sources to tie in to the engine via a translator. Just as SQL queries result in datasets
-                                                        stored in memory, LINQ returns a collection of memory-based objects.</p>
                                                 </div>
                                             </div>
-                                        </div>
 
-                                        <div class="timeline-item">
-                                            <div class="row">
-                                                <div class="col-lg-3 col-sm-3 col-xs-3 date">
-                                                    <i class="fa fa-file-text"></i>
-                                                    9:00 am
-                                                    <br/>
-                                                    <small class="text-navy">3 hour ago</small>
-                                                </div>
-                                                <div class="col-lg-9 col-sm-9 col-xs-9 content">
-                                                    <p class="m-b-xs"><strong>Pass by Value Versus Pass by Reference</strong> <small class="text-navy">Posted by Paul Christain Rueda</small></p>
-                                                    <p>The bad news is that the method that uses a reference variable has direct access to the data. Recall
-                                                        that a method that uses a value type receives a copy of the variable’s value, not the lvalue of the
-                                                        variable itself. This means that the method cannot permanently change the user’s value. With value
-                                                        types there are two buckets in memory: the original bucket and the bucket containing the copy. The
-                                                        method can alter the copy’s rvalue but has no clue where the original bucket is stored. Therefore,
-                                                        this pass by value way to send data to a method protects the original data because only a copy of the
-                                                        data is seen by the method.
-                                                        With a reference variable, you send the actual memory location of where the data is stored. Passing
-                                                        the actual memory location is called pass by reference. This means that the method has direct access
-                                                        to the original data, not to a copy of it. It also means that, if the method wants to, it can permanently
-                                                        affect the data associated with the reference variable.
-                                                        The old saying, “There’s no such thing as a free lunch,” applies to programming, too. You can
-                                                        use reference variables when writing a method to improve its performance and conserve memory.
-                                                        However, the price you pay is that you expose the data to the possibility of contamination because
-                                                        the method has direct access to it. This is sort of like a medieval king who takes the time to hide
-                                                        his daughter away in the castle tower, but then turns around and hands out her room key to every
-                                                        knight in the kingdom…probably not a good idea. Similarly, making the effort to hide data isn’t
-                                                        terribly worthwhile if you tell everyone where it’s hidden. Chapter 10 revisits these (encapsulation)
-                                                        issues and offers ways to cope with them.</p>
-                                                </div>
-                                            </div>
-                                        </div>
+                                        <?php     }  ?>
 
 
                                     </div>
@@ -351,7 +309,12 @@
 
             var InitializeControls=function(){
 
-                $('.summernote').summernote();
+                $('.summernote').summernote({
+                    height:100,
+                    onImageUpload: function(files, editor, $editable) {
+                        sendFile(files[0],editor,$editable);
+                    }
+                });
 
                 $("#cbo_departments").select2();
 
@@ -369,20 +332,59 @@
             var bindEventListeners=function(){
                 $('#btn_publish').click(function(){ //triggers when publish announcement is clicked
 
-                    publishAnnouncement().success(function(response){
-                        PNotify.removeAll(); //remove all notifications
-                        new PNotify({
-                            title: 'Success!',
-                            text:  response.msg,
-                            type:  response.stat
-                        }); //create new notification base on server response
+                    //$.each($('#cbo_departments'),function(i,value){
+                       // alert(value);
+                    //});
+                    if(validateRequiredFields()){
+                            publishAnnouncement().success(function(response){
+                                PNotify.removeAll(); //remove all notifications
+                                new PNotify({
+                                    title: 'Success!',
+                                    text:  response.msg,
+                                    type:  response.stat
+                                }); //create new notification base on server response
 
-                    });
 
+                                var row=response.row_added[0];
+                                var _structure='<div class="timeline-item" id="'+row.announce_id+'">';
+                                _structure+='<div class="row">';
+                                _structure+='<div class="col-lg-3 col-sm-3 col-xs-3 date">';
+                                _structure+='<i class="fa fa-file-text"></i>';
+                                _structure+='<span id="day-posted">'+row.DayPosted+'</span><br/>';
+                                _structure+='<span id="time-posted">'+row.TimePosted+'</span><br/>';
+                                _structure+='<small id="time-description" class="text-navy">'+row.TimeDescription+'</small>';
+                                _structure+='</div>';
+                                _structure+='<div class="col-lg-9 col-sm-9 col-xs-9 content no-top-border">';
+                                _structure+=row.announce_description+'<br /><br />';
+                                _structure+='<small class="text-navy">Posted by : Paul Christain Rueda</small><br />';
+                                _structure+='<small class="text-navy">Departments : '+row.DepartmentList+'</small>';
+                                _structure+='<br /><br /></div> </div></div>';
+
+                                $('#div-announcements').prepend(_structure);
+
+                            });
+                    }
                 });
 
 
             }();
+
+            var validateRequiredFields=function(){
+                var departments=$('#cbo_departments').select2('data');
+                if(departments.length==0){
+                    PNotify.removeAll(); //remove all notifications
+                    new PNotify({
+                        title: 'Error!',
+                        text:  "Please select atleast one department.",
+                        type:  "Error"
+                    });
+
+                    return false;
+                }
+
+
+                return true;
+            };
 
 
 
@@ -390,11 +392,21 @@
 
                 var announcement = $('.summernote').code();
                 var serialData=[];
+
                 serialData.push(
-                    { name:"announcement",value: announcement },
-                    { name:"start",value: $('#dtpicker1').val() },
-                    { name:"end",value: $('#dtpicker2').val() }
+                    { name:"description",value: announcement },
+                    { name:"start",value: $('#datepicker1').val() },
+                    { name:"end",value: $('#datepicker2').val() }
                 );
+
+                var departments=$('#cbo_departments').select2('data');
+                $.each(departments,function(i,value){
+                    serialData.push(
+                        {name:"departments[]",value: value.id}
+                    );
+                });
+
+                //console.log(serialData);
 
                 return $.ajax({
                     "dataType":"json",
@@ -404,6 +416,65 @@
                 });
 
             };
+
+            var sendFile=function(file,editor,welEditable) {
+                data = new FormData();
+                data.append("file", file);
+
+                $.ajax({
+                    url: "Announcements/UploadImage",
+                    data: data,
+                    cache: false,
+                    contentType: false,
+                    processData: false,
+                    type: 'POST',
+                    success: function(data){
+                        //alert(data);
+                        editor.insertImage(welEditable, data);
+                        //$('button[data-original-title="Resize Quarter"]').click();
+                    },
+                    error: function(jqXHR, textStatus, errorThrown) {
+                        console.log(textStatus+" "+errorThrown);
+                    }
+                });
+            }
+
+
+
+
+
+
+
+
+
+
+            var updater=function(){
+
+                    setInterval(function(){
+                            var _parent=$('#div-announcements');
+
+                            $.ajax({
+                                "dataType":"json",
+                                "type":"GET",
+                                "url":"Announcements/GetTimeDescriptionList",
+                                "success":function(response){
+                                    $.each(response,function(i,value){
+                                        //alert(value.announce_id);
+                                        var _item=_parent.find('div[id="'+value.announce_id+'"]');
+                                        _item.find('small[id="time-description"]').html(value.TimeDescription);
+                                        _item.find('span[id="day-posted"]').html(value.DayPosted);
+                                        _item.find('span[id="time-posted"]').html(value.TimePosted);
+                                        //console.log(_item);
+                                    });
+                                }
+                            });
+                    },5000);
+
+            }();
+
+
+
+
 
 
 

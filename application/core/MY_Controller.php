@@ -93,7 +93,7 @@ class MY_Controller extends CI_Controller {
     /*Account Logout */
     public function logout_account(){
         
-        $this->session->unset_userdata("account_id");   
+        $this->session->unset_userdata("user_account_id");   
         session_destroy();
         redirect(base_url().'Login');
     }
