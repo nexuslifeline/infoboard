@@ -40,9 +40,9 @@ class MY_Controller extends CI_Controller {
         $this->controller_name = $controller_name;
         $this->params['controller_name'] = $this->controller_name;
 
+        //$this->_check_account_not_session();
 
-
-        
+        //$this->load->database();
     }
 
     protected function load_header_files()
