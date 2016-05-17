@@ -1,5 +1,5 @@
 <?php
-<?php
+
 
 class UserManagement extends MY_Controller {
 
