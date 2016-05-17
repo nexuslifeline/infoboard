@@ -23,11 +23,11 @@ USE `infoboard`;
 #
 
 CREATE TABLE `announcement_viewers` (
-  `annouce_deparment_id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `announce_deparment_id` bigint(20) NOT NULL AUTO_INCREMENT,
   `department_id` int(11) DEFAULT '0' COMMENT 'WHICH COURSE IS ALLOWED TO VIEW THIS ANNOUNCEMENT',
   `announce_id` int(11) DEFAULT '0',
-  PRIMARY KEY (`annouce_deparment_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=65 DEFAULT CHARSET=latin1;
+  PRIMARY KEY (`announce_deparment_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=143 DEFAULT CHARSET=latin1;
 
 #
 # Structure for the `announcements` table : 
@@ -44,7 +44,7 @@ CREATE TABLE `announcements` (
   `is_active` bit(1) DEFAULT b'1',
   `is_deleted` bit(1) DEFAULT b'0',
   PRIMARY KEY (`announce_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=105 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=173 DEFAULT CHARSET=latin1;
 
 #
 # Structure for the `courses` table : 
@@ -217,8 +217,8 @@ CREATE TABLE `user_groups` (
 # Data for the `announcement_viewers` table  (LIMIT 0,500)
 #
 
-INSERT INTO `announcement_viewers` (`annouce_deparment_id`, `department_id`, `announce_id`) VALUES 
-  (64,1,104);
+INSERT INTO `announcement_viewers` (`announce_deparment_id`, `department_id`, `announce_id`) VALUES 
+  (142,1,172);
 COMMIT;
 
 #
@@ -226,7 +226,7 @@ COMMIT;
 #
 
 INSERT INTO `announcements` (`announce_id`, `announce_description`, `post_shown_date`, `post_expire_date`, `post_by_user_id`, `modified_date`, `posted_date`, `is_active`, `is_deleted`) VALUES 
-  (104,'<h1 id=\"firstHeading\" class=\"firstHeading\" lang=\"en\" style=\"color: black; margin-top: 0px; margin-bottom: 0.25em; overflow: visible; padding: 0px; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: rgb(170, 170, 170); font-size: 1.8em; line-height: 1.3; font-family: ''Linux Libertine'', Georgia, Times, serif; background: none;\"><i>Chrysanthemum</i></h1><div><i><br></i></div><div><p style=\"margin-top: 0.5em; margin-bottom: 0.5em; line-height: 22.4px; color: rgb(37, 37, 37); font-family: sans-serif; font-size: 14px;\"><img src=\"images/announcements/Chrysanthemum.jpg\" style=\"width: 219.889px;float:left;margin-right:10px;border-style:2px solid black;\">The genus once included more species, but was split several decades ago into several genera, putting the economically important florist''s chrysanthemums in the genus&nbsp;<i>Dendranthema</i>. The naming of the genera has been contentious, but a ruling of the&nbsp;<a href=\"https://en.wikipedia.org/wiki/International_Botanical_Congress\" title=\"International Botanical Congress\" style=\"color: rgb(11, 0, 128); background-image: none;\">International Botanical Congress</a>&nbsp;in 1999 changed the&nbsp;<a href=\"https://en.wikipedia.org/wiki/Type_species\" title=\"Type species\" style=\"color: rgb(11, 0, 128); background-image: none;\">defining species</a>&nbsp;of the genus to&nbsp;<i>Chrysanthemum indicum</i>, restoring the florist''s chrysanthemums to the genus&nbsp;<i>Chrysanthemum</i>.</p><p style=\"margin-top: 0.5em; margin-bottom: 0.5em; line-height: 22.4px; color: rgb(37, 37, 37); font-family: sans-serif; font-size: 14px;\">The other species previously included in the narrow view of the genus&nbsp;<i>Chrysanthemum</i>&nbsp;are now transferred to the genus&nbsp;<i><a href=\"https://en.wikipedia.org/wiki/Glebionis\" title=\"Glebionis\" style=\"color: rgb(11, 0, 128); background-image: none;\">Glebionis</a></i>. The other genera separate from<i>Chrysanthemum</i>&nbsp;include&nbsp;<i><a href=\"https://en.wikipedia.org/wiki/Argyranthemum\" title=\"Argyranthemum\" style=\"color: rgb(11, 0, 128); background-image: none;\">Argyranthemum</a></i>,&nbsp;<i><a href=\"https://en.wikipedia.org/wiki/Leucanthemopsis\" title=\"Leucanthemopsis\" style=\"color: rgb(11, 0, 128); background-image: none;\">Leucanthemopsis</a></i>,&nbsp;<i><a href=\"https://en.wikipedia.org/wiki/Leucanthemum\" title=\"Leucanthemum\" style=\"color: rgb(11, 0, 128); background-image: none;\">Leucanthemum</a></i>,&nbsp;<i><a href=\"https://en.wikipedia.org/wiki/Rhodanthemum\" title=\"Rhodanthemum\" style=\"color: rgb(11, 0, 128); background-image: none;\">Rhodanthemum</a></i>, and&nbsp;<i><a href=\"https://en.wikipedia.org/wiki/Tanacetum\" title=\"Tanacetum\" style=\"color: rgb(11, 0, 128); background-image: none;\">Tanacetum</a></i>.</p><p style=\"margin-top: 0.5em; margin-bottom: 0.5em; line-height: 22.4px; color: rgb(37, 37, 37); font-family: sans-serif; font-size: 14px;\"><span style=\"line-height: 22.4px;\">Wild&nbsp;</span><i style=\"line-height: 22.4px;\">Chrysanthemum</i><span style=\"line-height: 22.4px;\">&nbsp;taxa are&nbsp;</span><a href=\"https://en.wikipedia.org/wiki/Herbaceous_plant\" title=\"Herbaceous plant\" style=\"color: rgb(11, 0, 128); line-height: 22.4px; background-image: none; background-color: rgb(255, 255, 255);\">herbaceous</a><span style=\"line-height: 22.4px;\">&nbsp;</span><a href=\"https://en.wikipedia.org/wiki/Perennial_plant\" title=\"Perennial plant\" style=\"color: rgb(11, 0, 128); line-height: 22.4px; background-image: none; background-color: rgb(255, 255, 255);\">perennial plants</a><span style=\"line-height: 22.4px;\">&nbsp;or&nbsp;</span><a href=\"https://en.wikipedia.org/wiki/Shrub\" title=\"Shrub\" style=\"color: rgb(11, 0, 128); line-height: 22.4px; background-image: none; background-color: rgb(255, 255, 255);\">subshrubs</a><span style=\"line-height: 22.4px;\">. They have alternately arranged leaves divided into leaflets with toothed or occasionally smooth edges. The compound&nbsp;</span><a href=\"https://en.wikipedia.org/wiki/Inflorescence\" title=\"Inflorescence\" style=\"color: rgb(11, 0, 128); line-height: 22.4px; background-image: none; background-color: rgb(255, 255, 255);\">inflorescence</a><span style=\"line-height: 22.4px;\">&nbsp;is an array of several&nbsp;</span><a href=\"https://en.wikipedia.org/wiki/Pseudanthium\" title=\"Pseudanthium\" style=\"color: rgb(11, 0, 128); line-height: 22.4px; background-image: none; background-color: rgb(255, 255, 255);\">flower heads</a><span style=\"line-height: 22.4px;\">, or sometimes a solitary head. The head has a base covered in layers of&nbsp;</span><a href=\"https://en.wikipedia.org/wiki/Bract\" title=\"Bract\" style=\"color: rgb(11, 0, 128); line-height: 22.4px; background-image: none; background-color: rgb(255, 255, 255);\">phyllaries</a><span style=\"line-height: 22.4px;\">. The simple row of ray florets are white, yellow or red; many horticultural specimens have been bred to bear many rows of ray florets in a great variety of colors. The disc florets of wild taxa are yellow. The fruit is a ribbed&nbsp;</span><a href=\"https://en.wikipedia.org/wiki/Achene\" title=\"Achene\" style=\"color: rgb(11, 0, 128); line-height: 22.4px; background-image: none; background-color: rgb(255, 255, 255);\">achene</a><span style=\"line-height: 22.4px;\">.</span><sup id=\"cite_ref-china_6-0\" class=\"reference\" style=\"line-height: 1; unicode-bidi: isolate; white-space: nowrap; font-size: 11.2px;\"><a href=\"https://en.wikipedia.org/wiki/Chrysanthemum#cite_note-china-6\" style=\"color: rgb(11, 0, 128); background-image: none;\">[6]</a></sup><span style=\"line-height: 22.4px;\">&nbsp;Chrysanthemums, also known as ‘mums’, are one of the prettiest varieties of perennials that start blooming early in the fall. This is also known as favorite flower for the month of&nbsp;</span><a href=\"https://en.wikipedia.org/wiki/November\" title=\"November\" style=\"color: rgb(11, 0, 128); line-height: 22.4px; background-image: none; background-color: rgb(255, 255, 255);\">November</a><span style=\"line-height: 22.4px;\">.</span><br></p></div>','2014-03-04','2014-03-04',2,NULL,'2016-05-15 09:28:57',1,0);
+  (172,'ggggggggggggggg\n\n                                        ','2016-05-17','2016-05-17',2,NULL,'2016-05-17 08:55:40',1,0);
 COMMIT;
 
 #

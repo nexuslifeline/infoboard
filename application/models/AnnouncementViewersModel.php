@@ -2,7 +2,7 @@
 
 class AnnouncementViewersModel extends CI_Model {
     public  $table="announcement_viewers"; //table name
-    public  $pk_id="annouce_deparment_id"; //primary key id
+    public  $pk_id="announce_department_id"; //primary key id
 
 
     function __construct(){
@@ -32,7 +32,7 @@ class AnnouncementViewersModel extends CI_Model {
     }
 
     function update($id,$data){
-        $this->db->where($this->$pk_id,$id);
+        $this->db->where($this->pk_id,$id);
         return   $this->db->insert($this->table,$data) or false;
     }
 
@@ -41,7 +41,7 @@ class AnnouncementViewersModel extends CI_Model {
     }
 
     function delete($id){
-        $this->db->where($this->$pk_id,$id);
+        $this->db->where('announce_id',$id);
         return   $this->db->delete($this->table) or false;
     }
 

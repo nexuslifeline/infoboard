@@ -28,19 +28,11 @@
       <file leaf-file-name="Announcements.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/controllers/Announcements.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-11.923077" vertical-offset="234" max-vertical-offset="2074">
-              <caret line="32" column="35" selection-start-line="32" selection-start-column="13" selection-end-line="32" selection-end-column="35" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="left_navigation.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/views/templates/left_navigation.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.0" vertical-offset="612" max-vertical-offset="1547">
-              <caret line="36" column="21" selection-start-line="36" selection-start-column="21" selection-end-line="36" selection-end-column="21" />
-              <folding />
+            <state vertical-scroll-proportion="-18.307692" vertical-offset="1122" max-vertical-offset="2465">
+              <caret line="141" column="32" selection-start-line="141" selection-start-column="21" selection-end-line="141" selection-end-column="32" />
+              <folding>
+                <element signature="n#PublishAnnouncement#0;n#Announcements#0;n#!!top" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -48,15 +40,16 @@
       <file leaf-file-name="AnnouncementModel.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/models/AnnouncementModel.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-2.7692308" vertical-offset="438" max-vertical-offset="1700">
-              <caret line="64" column="35" selection-start-line="64" selection-start-column="13" selection-end-line="64" selection-end-column="35" />
+            <state vertical-scroll-proportion="-8.653846" vertical-offset="965" max-vertical-offset="1802">
+              <caret line="74" column="54" selection-start-line="74" selection-start-column="54" selection-end-line="74" selection-end-column="54" />
               <folding>
-                <marker date="1463328332863" expanded="false" signature="607:2426" placeholder="SELECT m.*, ..announce_id..." />
-                <marker date="1463328332863" expanded="true" signature="1257:2275" placeholder="SELECT a.ann..." />
-                <marker date="1463328332863" expanded="true" signature="1257:2292" placeholder="SELECT a.ann..." />
-                <marker date="1463328332863" expanded="true" signature="1257:2373" placeholder="SELECT a.ann..." />
-                <marker date="1463328332863" expanded="true" signature="2612:3928" placeholder="SELECT m.*, ..announce_id..." />
-                <marker date="1463328332863" expanded="true" signature="3262:3832" placeholder="SELECT a.ann..." />
+                <element signature="n#GetDepartmentList#0;n#AnnouncementModel#0;n#!!top" expanded="false" />
+                <element signature="n#GetTimeDescriptionList#0;n#AnnouncementModel#0;n#!!top" expanded="false" />
+                <marker date="1463500247226" expanded="true" signature="1300:3497" placeholder="SELECT m.*, ..announce_id..." />
+                <marker date="1463500247226" expanded="true" signature="1950:3284" placeholder="SELECT a.ann..." />
+                <marker date="1463500247226" expanded="true" signature="1950:3444" placeholder="SELECT a.ann..." />
+                <marker date="1463500247226" expanded="true" signature="3683:4999" placeholder="SELECT m.*, ..announce_id..." />
+                <marker date="1463500247226" expanded="true" signature="4333:4903" placeholder="SELECT a.ann..." />
               </folding>
             </state>
           </provider>
@@ -65,8 +58,8 @@
       <file leaf-file-name="AnnouncementViewersModel.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/models/AnnouncementViewersModel.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-4.076923" vertical-offset="370" max-vertical-offset="952">
-              <caret line="28" column="25" selection-start-line="28" selection-start-column="13" selection-end-line="28" selection-end-column="25" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="306" max-vertical-offset="952">
+              <caret line="44" column="58" selection-start-line="44" selection-start-column="58" selection-end-line="44" selection-end-column="58" />
               <folding />
             </state>
           </provider>
@@ -75,8 +68,8 @@
       <file leaf-file-name="announcements.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/application/views/announcements.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5817223" vertical-offset="7574" max-vertical-offset="8449">
-              <caret line="465" column="98" selection-start-line="465" selection-start-column="98" selection-end-line="465" selection-end-column="98" />
+            <state vertical-scroll-proportion="0.721519" vertical-offset="2287" max-vertical-offset="13413">
+              <caret line="158" column="202" selection-start-line="158" selection-start-column="202" selection-end-line="158" selection-end-column="202" />
               <folding />
             </state>
           </provider>
@@ -97,19 +90,18 @@
       <list>
         <option value="$PROJECT_DIR$/assets/js/defined/department.management.event.handlers.js" />
         <option value="$PROJECT_DIR$/application/views/templates/left_navigation.php" />
+        <option value="$PROJECT_DIR$/application/core/MY_Controller.php" />
+        <option value="$PROJECT_DIR$/application/controllers/Announcements.php" />
         <option value="$PROJECT_DIR$/application/models/AnnouncementViewersModel.php" />
         <option value="$PROJECT_DIR$/application/models/AnnouncementModel.php" />
-        <option value="$PROJECT_DIR$/application/controllers/Announcements.php" />
         <option value="$PROJECT_DIR$/application/views/announcements.php" />
       </list>
     </option>
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
-    <option name="width" value="1382" />
-    <option name="height" value="744" />
+    <option name="width" value="1366" />
+    <option name="height" value="728" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -166,15 +158,15 @@
       <BehatRunner />
       <method />
     </configuration>
+    <configuration default="true" type="PhpUnitRemoteRunConfigurationType" factoryName="PHPUnit on Server">
+      <method />
+    </configuration>
     <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
       <node-options />
       <gulpfile />
       <tasks />
       <pass-parent-env-vars>false</pass-parent-env-vars>
       <envs />
-      <method />
-    </configuration>
-    <configuration default="true" type="PhpUnitRemoteRunConfigurationType" factoryName="PHPUnit on Server">
       <method />
     </configuration>
     <list size="0" />
@@ -193,13 +185,12 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <frame x="0" y="0" width="1366" height="728" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -210,11 +201,12 @@
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -235,16 +227,34 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="2" />
+      <option name="time" value="4" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/application/models/AnnouncementViewersModel.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="306" max-vertical-offset="952">
+          <caret line="44" column="58" selection-start-line="44" selection-start-column="58" selection-end-line="44" selection-end-column="58" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/announcements.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="13243">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/application/controllers/Announcements.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="323" max-vertical-offset="1105">
-          <caret line="37" column="39" selection-start-line="37" selection-start-column="39" selection-end-line="37" selection-end-column="39" />
-          <folding />
+        <state vertical-scroll-proportion="0.0" vertical-offset="574" max-vertical-offset="1156">
+          <caret line="120" column="8" selection-start-line="120" selection-start-column="8" selection-end-line="120" selection-end-column="8" />
+          <folding>
+            <element signature="n#PublishAnnouncement#0;n#Announcements#0;n#!!top" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -252,7 +262,104 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="612" max-vertical-offset="1547">
           <caret line="36" column="21" selection-start-line="36" selection-start-column="21" selection-end-line="36" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/models/AnnouncementModel.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="540" max-vertical-offset="1836">
+          <caret line="54" column="48" selection-start-line="54" selection-start-column="39" selection-end-line="54" selection-end-column="48" />
+          <folding>
+            <element signature="n#GetDepartmentList#0;n#AnnouncementModel#0;n#!!top" expanded="false" />
+            <element signature="n#GetTimeDescriptionList#0;n#AnnouncementModel#0;n#!!top" expanded="false" />
+            <marker date="1463500247226" expanded="true" signature="1300:3497" placeholder="SELECT m.*, ..announce_id..." />
+            <marker date="1463500247226" expanded="true" signature="1950:3284" placeholder="SELECT a.ann..." />
+            <marker date="1463500247226" expanded="true" signature="1950:3444" placeholder="SELECT a.ann..." />
+            <marker date="1463500247226" expanded="true" signature="3683:4999" placeholder="SELECT m.*, ..announce_id..." />
+            <marker date="1463500247226" expanded="true" signature="4333:4903" placeholder="SELECT a.ann..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/models/AnnouncementViewersModel.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="370" max-vertical-offset="952">
+          <caret line="28" column="25" selection-start-line="28" selection-start-column="13" selection-end-line="28" selection-end-column="25" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/announcements.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="10183">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/Announcements.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2074">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="n#PublishAnnouncement#0;n#Announcements#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/templates/left_navigation.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="612" max-vertical-offset="1547">
+          <caret line="36" column="21" selection-start-line="36" selection-start-column="21" selection-end-line="36" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/models/AnnouncementModel.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="438" max-vertical-offset="1700">
+          <caret line="64" column="35" selection-start-line="64" selection-start-column="13" selection-end-line="64" selection-end-column="35" />
+          <folding>
+            <element signature="n#GetDepartmentList#0;n#AnnouncementModel#0;n#!!top" expanded="false" />
+            <element signature="n#GetTimeDescriptionList#0;n#AnnouncementModel#0;n#!!top" expanded="false" />
+            <marker date="1463500247226" expanded="true" signature="1300:3497" placeholder="SELECT m.*, ..announce_id..." />
+            <marker date="1463500247226" expanded="true" signature="1950:3284" placeholder="SELECT a.ann..." />
+            <marker date="1463500247226" expanded="true" signature="1950:3444" placeholder="SELECT a.ann..." />
+            <marker date="1463500247226" expanded="true" signature="3683:4999" placeholder="SELECT m.*, ..announce_id..." />
+            <marker date="1463500247226" expanded="true" signature="4333:4903" placeholder="SELECT a.ann..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/models/AnnouncementViewersModel.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="370" max-vertical-offset="952">
+          <caret line="28" column="25" selection-start-line="28" selection-start-column="13" selection-end-line="28" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/announcements.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="7574" max-vertical-offset="8449">
+          <caret line="465" column="98" selection-start-line="465" selection-start-column="98" selection-end-line="465" selection-end-column="98" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/Announcements.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="323" max-vertical-offset="1105">
+          <caret line="37" column="39" selection-start-line="37" selection-start-column="39" selection-end-line="37" selection-end-column="39" />
+          <folding>
+            <element signature="n#PublishAnnouncement#0;n#Announcements#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/templates/left_navigation.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="612" max-vertical-offset="1547">
+          <caret line="36" column="21" selection-start-line="36" selection-start-column="21" selection-end-line="36" selection-end-column="21" />
         </state>
       </provider>
     </entry>
@@ -261,12 +368,13 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="234" max-vertical-offset="969">
           <caret line="36" column="0" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
           <folding>
-            <marker date="1463328332863" expanded="false" signature="607:2426" placeholder="SELECT m.*, ..announce_id..." />
-            <marker date="1463328332863" expanded="true" signature="1257:2275" placeholder="SELECT a.ann..." />
-            <marker date="1463328332863" expanded="true" signature="1257:2292" placeholder="SELECT a.ann..." />
-            <marker date="1463328332863" expanded="true" signature="1257:2373" placeholder="SELECT a.ann..." />
-            <marker date="1463328332863" expanded="true" signature="2612:3928" placeholder="SELECT m.*, ..announce_id..." />
-            <marker date="1463328332863" expanded="true" signature="3262:3832" placeholder="SELECT a.ann..." />
+            <element signature="n#GetDepartmentList#0;n#AnnouncementModel#0;n#!!top" expanded="false" />
+            <element signature="n#GetTimeDescriptionList#0;n#AnnouncementModel#0;n#!!top" expanded="false" />
+            <marker date="1463500247226" expanded="true" signature="1300:3497" placeholder="SELECT m.*, ..announce_id..." />
+            <marker date="1463500247226" expanded="true" signature="1950:3284" placeholder="SELECT a.ann..." />
+            <marker date="1463500247226" expanded="true" signature="1950:3444" placeholder="SELECT a.ann..." />
+            <marker date="1463500247226" expanded="true" signature="3683:4999" placeholder="SELECT m.*, ..announce_id..." />
+            <marker date="1463500247226" expanded="true" signature="4333:4903" placeholder="SELECT a.ann..." />
           </folding>
         </state>
       </provider>
@@ -283,10 +391,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="3211" max-vertical-offset="8976">
           <caret line="215" column="56" selection-start-line="215" selection-start-column="56" selection-end-line="215" selection-end-column="56" />
-          <folding>
-            <marker date="1462749102000" expanded="false" signature="-1:-1" placeholder="..." />
-            <marker date="1462749102000" expanded="false" signature="-1:-1" placeholder="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -294,10 +398,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="561" max-vertical-offset="2516">
           <caret line="53" column="53" selection-start-line="53" selection-start-column="31" selection-end-line="53" selection-end-column="53" />
-          <folding>
-            <marker date="1462748268000" expanded="true" signature="-1:-1" placeholder="SELECT CONCA..departments..." />
-            <marker date="1462748268000" expanded="true" signature="-1:-1" placeholder="SELECT CONCA..departments..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -305,7 +405,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1105">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="n#PublishAnnouncement#0;n#Announcements#0;n#!!top" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -313,7 +415,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="612" max-vertical-offset="1547">
           <caret line="36" column="21" selection-start-line="36" selection-start-column="21" selection-end-line="36" selection-end-column="21" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -322,12 +423,13 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="234" max-vertical-offset="969">
           <caret line="36" column="0" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
           <folding>
-            <marker date="1463328332863" expanded="false" signature="607:2426" placeholder="SELECT m.*, ..announce_id..." />
-            <marker date="1463328332863" expanded="true" signature="1257:2275" placeholder="SELECT a.ann..." />
-            <marker date="1463328332863" expanded="true" signature="1257:2292" placeholder="SELECT a.ann..." />
-            <marker date="1463328332863" expanded="true" signature="1257:2373" placeholder="SELECT a.ann..." />
-            <marker date="1463328332863" expanded="true" signature="2612:3928" placeholder="SELECT m.*, ..announce_id..." />
-            <marker date="1463328332863" expanded="true" signature="3262:3832" placeholder="SELECT a.ann..." />
+            <element signature="n#GetDepartmentList#0;n#AnnouncementModel#0;n#!!top" expanded="false" />
+            <element signature="n#GetTimeDescriptionList#0;n#AnnouncementModel#0;n#!!top" expanded="false" />
+            <marker date="1463500247226" expanded="true" signature="1300:3497" placeholder="SELECT m.*, ..announce_id..." />
+            <marker date="1463500247226" expanded="true" signature="1950:3284" placeholder="SELECT a.ann..." />
+            <marker date="1463500247226" expanded="true" signature="1950:3444" placeholder="SELECT a.ann..." />
+            <marker date="1463500247226" expanded="true" signature="3683:4999" placeholder="SELECT m.*, ..announce_id..." />
+            <marker date="1463500247226" expanded="true" signature="4333:4903" placeholder="SELECT a.ann..." />
           </folding>
         </state>
       </provider>
@@ -344,10 +446,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="3211" max-vertical-offset="8976">
           <caret line="215" column="56" selection-start-line="215" selection-start-column="56" selection-end-line="215" selection-end-column="56" />
-          <folding>
-            <marker date="1462749102000" expanded="false" signature="-1:-1" placeholder="..." />
-            <marker date="1462749102000" expanded="false" signature="-1:-1" placeholder="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -355,10 +453,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="561" max-vertical-offset="2516">
           <caret line="53" column="53" selection-start-line="53" selection-start-column="31" selection-end-line="53" selection-end-column="53" />
-          <folding>
-            <marker date="1462748268000" expanded="true" signature="-1:-1" placeholder="SELECT CONCA..departments..." />
-            <marker date="1462748268000" expanded="true" signature="-1:-1" placeholder="SELECT CONCA..departments..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -366,7 +460,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="323" max-vertical-offset="1105">
           <caret line="37" column="39" selection-start-line="37" selection-start-column="39" selection-end-line="37" selection-end-column="39" />
-          <folding />
+          <folding>
+            <element signature="n#PublishAnnouncement#0;n#Announcements#0;n#!!top" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -374,7 +470,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1547">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -383,12 +478,13 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="234" max-vertical-offset="969">
           <caret line="36" column="0" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
           <folding>
-            <marker date="1463328332863" expanded="false" signature="607:2426" placeholder="SELECT m.*, ..announce_id..." />
-            <marker date="1463328332863" expanded="true" signature="1257:2275" placeholder="SELECT a.ann..." />
-            <marker date="1463328332863" expanded="true" signature="1257:2292" placeholder="SELECT a.ann..." />
-            <marker date="1463328332863" expanded="true" signature="1257:2373" placeholder="SELECT a.ann..." />
-            <marker date="1463328332863" expanded="true" signature="2612:3928" placeholder="SELECT m.*, ..announce_id..." />
-            <marker date="1463328332863" expanded="true" signature="3262:3832" placeholder="SELECT a.ann..." />
+            <element signature="n#GetDepartmentList#0;n#AnnouncementModel#0;n#!!top" expanded="false" />
+            <element signature="n#GetTimeDescriptionList#0;n#AnnouncementModel#0;n#!!top" expanded="false" />
+            <marker date="1463500247226" expanded="true" signature="1300:3497" placeholder="SELECT m.*, ..announce_id..." />
+            <marker date="1463500247226" expanded="true" signature="1950:3284" placeholder="SELECT a.ann..." />
+            <marker date="1463500247226" expanded="true" signature="1950:3444" placeholder="SELECT a.ann..." />
+            <marker date="1463500247226" expanded="true" signature="3683:4999" placeholder="SELECT m.*, ..announce_id..." />
+            <marker date="1463500247226" expanded="true" signature="4333:4903" placeholder="SELECT a.ann..." />
           </folding>
         </state>
       </provider>
@@ -405,10 +501,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="3211" max-vertical-offset="8976">
           <caret line="215" column="56" selection-start-line="215" selection-start-column="56" selection-end-line="215" selection-end-column="56" />
-          <folding>
-            <marker date="1462749102000" expanded="false" signature="-1:-1" placeholder="..." />
-            <marker date="1462749102000" expanded="false" signature="-1:-1" placeholder="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -416,10 +508,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="561" max-vertical-offset="2516">
           <caret line="53" column="53" selection-start-line="53" selection-start-column="31" selection-end-line="53" selection-end-column="53" />
-          <folding>
-            <marker date="1462748268000" expanded="true" signature="-1:-1" placeholder="SELECT CONCA..departments..." />
-            <marker date="1462748268000" expanded="true" signature="-1:-1" placeholder="SELECT CONCA..departments..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -427,7 +515,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="323" max-vertical-offset="1105">
           <caret line="37" column="39" selection-start-line="37" selection-start-column="39" selection-end-line="37" selection-end-column="39" />
-          <folding />
+          <folding>
+            <element signature="n#PublishAnnouncement#0;n#Announcements#0;n#!!top" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -435,7 +525,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1547">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -444,12 +533,13 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="234" max-vertical-offset="969">
           <caret line="36" column="0" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
           <folding>
-            <marker date="1463328332863" expanded="false" signature="607:2426" placeholder="SELECT m.*, ..announce_id..." />
-            <marker date="1463328332863" expanded="true" signature="1257:2275" placeholder="SELECT a.ann..." />
-            <marker date="1463328332863" expanded="true" signature="1257:2292" placeholder="SELECT a.ann..." />
-            <marker date="1463328332863" expanded="true" signature="1257:2373" placeholder="SELECT a.ann..." />
-            <marker date="1463328332863" expanded="true" signature="2612:3928" placeholder="SELECT m.*, ..announce_id..." />
-            <marker date="1463328332863" expanded="true" signature="3262:3832" placeholder="SELECT a.ann..." />
+            <element signature="n#GetDepartmentList#0;n#AnnouncementModel#0;n#!!top" expanded="false" />
+            <element signature="n#GetTimeDescriptionList#0;n#AnnouncementModel#0;n#!!top" expanded="false" />
+            <marker date="1463500247226" expanded="true" signature="1300:3497" placeholder="SELECT m.*, ..announce_id..." />
+            <marker date="1463500247226" expanded="true" signature="1950:3284" placeholder="SELECT a.ann..." />
+            <marker date="1463500247226" expanded="true" signature="1950:3444" placeholder="SELECT a.ann..." />
+            <marker date="1463500247226" expanded="true" signature="3683:4999" placeholder="SELECT m.*, ..announce_id..." />
+            <marker date="1463500247226" expanded="true" signature="4333:4903" placeholder="SELECT a.ann..." />
           </folding>
         </state>
       </provider>
@@ -466,10 +556,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="3211" max-vertical-offset="8976">
           <caret line="215" column="56" selection-start-line="215" selection-start-column="56" selection-end-line="215" selection-end-column="56" />
-          <folding>
-            <marker date="1462749102000" expanded="false" signature="-1:-1" placeholder="..." />
-            <marker date="1462749102000" expanded="false" signature="-1:-1" placeholder="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -477,10 +563,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="561" max-vertical-offset="2516">
           <caret line="53" column="53" selection-start-line="53" selection-start-column="31" selection-end-line="53" selection-end-column="53" />
-          <folding>
-            <marker date="1462748268000" expanded="true" signature="-1:-1" placeholder="SELECT CONCA..departments..." />
-            <marker date="1462748268000" expanded="true" signature="-1:-1" placeholder="SELECT CONCA..departments..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -488,7 +570,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1105">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="n#PublishAnnouncement#0;n#Announcements#0;n#!!top" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -497,12 +581,13 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="234" max-vertical-offset="969">
           <caret line="36" column="0" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
           <folding>
-            <marker date="1463328332863" expanded="false" signature="607:2426" placeholder="SELECT m.*, ..announce_id..." />
-            <marker date="1463328332863" expanded="true" signature="1257:2275" placeholder="SELECT a.ann..." />
-            <marker date="1463328332863" expanded="true" signature="1257:2292" placeholder="SELECT a.ann..." />
-            <marker date="1463328332863" expanded="true" signature="1257:2373" placeholder="SELECT a.ann..." />
-            <marker date="1463328332863" expanded="true" signature="2612:3928" placeholder="SELECT m.*, ..announce_id..." />
-            <marker date="1463328332863" expanded="true" signature="3262:3832" placeholder="SELECT a.ann..." />
+            <element signature="n#GetDepartmentList#0;n#AnnouncementModel#0;n#!!top" expanded="false" />
+            <element signature="n#GetTimeDescriptionList#0;n#AnnouncementModel#0;n#!!top" expanded="false" />
+            <marker date="1463500247226" expanded="true" signature="1300:3497" placeholder="SELECT m.*, ..announce_id..." />
+            <marker date="1463500247226" expanded="true" signature="1950:3284" placeholder="SELECT a.ann..." />
+            <marker date="1463500247226" expanded="true" signature="1950:3444" placeholder="SELECT a.ann..." />
+            <marker date="1463500247226" expanded="true" signature="3683:4999" placeholder="SELECT m.*, ..announce_id..." />
+            <marker date="1463500247226" expanded="true" signature="4333:4903" placeholder="SELECT a.ann..." />
           </folding>
         </state>
       </provider>
@@ -519,10 +604,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="3211" max-vertical-offset="8976">
           <caret line="215" column="56" selection-start-line="215" selection-start-column="56" selection-end-line="215" selection-end-column="56" />
-          <folding>
-            <marker date="1462749102000" expanded="false" signature="-1:-1" placeholder="..." />
-            <marker date="1462749102000" expanded="false" signature="-1:-1" placeholder="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -530,10 +611,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="561" max-vertical-offset="2516">
           <caret line="53" column="53" selection-start-line="53" selection-start-column="31" selection-end-line="53" selection-end-column="53" />
-          <folding>
-            <marker date="1462748268000" expanded="true" signature="-1:-1" placeholder="SELECT CONCA..departments..." />
-            <marker date="1462748268000" expanded="true" signature="-1:-1" placeholder="SELECT CONCA..departments..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -555,10 +632,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.58419245" vertical-offset="561" max-vertical-offset="2516">
           <caret line="53" column="53" selection-start-line="53" selection-start-column="31" selection-end-line="53" selection-end-column="53" />
-          <folding>
-            <marker date="1462748268000" expanded="true" signature="-1:-1" placeholder="SELECT CONCA..departments..." />
-            <marker date="1462748268000" expanded="true" signature="-1:-1" placeholder="SELECT CONCA..departments..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -566,10 +639,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="1.1747899" vertical-offset="2956" max-vertical-offset="8976">
           <caret line="215" column="56" selection-start-line="215" selection-start-column="56" selection-end-line="215" selection-end-column="56" />
-          <folding>
-            <marker date="1462749102000" expanded="false" signature="-1:-1" placeholder="..." />
-            <marker date="1462749102000" expanded="false" signature="-1:-1" placeholder="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -577,45 +646,54 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.0" vertical-offset="612" max-vertical-offset="1547">
           <caret line="36" column="21" selection-start-line="36" selection-start-column="21" selection-end-line="36" selection-end-column="21" />
-          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/core/MY_Controller.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-17.0" vertical-offset="306" max-vertical-offset="1853">
+          <caret line="44" column="10" selection-start-line="44" selection-start-column="10" selection-end-line="44" selection-end-column="10" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/models/AnnouncementViewersModel.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.076923" vertical-offset="370" max-vertical-offset="952">
-          <caret line="28" column="25" selection-start-line="28" selection-start-column="13" selection-end-line="28" selection-end-column="25" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="306" max-vertical-offset="952">
+          <caret line="44" column="58" selection-start-line="44" selection-start-column="58" selection-end-line="44" selection-end-column="58" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/models/AnnouncementModel.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.7692308" vertical-offset="438" max-vertical-offset="1700">
-          <caret line="64" column="35" selection-start-line="64" selection-start-column="13" selection-end-line="64" selection-end-column="35" />
+        <state vertical-scroll-proportion="-8.653846" vertical-offset="965" max-vertical-offset="1802">
+          <caret line="74" column="54" selection-start-line="74" selection-start-column="54" selection-end-line="74" selection-end-column="54" />
           <folding>
-            <marker date="1463328332863" expanded="false" signature="607:2426" placeholder="SELECT m.*, ..announce_id..." />
-            <marker date="1463328332863" expanded="true" signature="1257:2275" placeholder="SELECT a.ann..." />
-            <marker date="1463328332863" expanded="true" signature="1257:2292" placeholder="SELECT a.ann..." />
-            <marker date="1463328332863" expanded="true" signature="1257:2373" placeholder="SELECT a.ann..." />
-            <marker date="1463328332863" expanded="true" signature="2612:3928" placeholder="SELECT m.*, ..announce_id..." />
-            <marker date="1463328332863" expanded="true" signature="3262:3832" placeholder="SELECT a.ann..." />
+            <element signature="n#GetDepartmentList#0;n#AnnouncementModel#0;n#!!top" expanded="false" />
+            <element signature="n#GetTimeDescriptionList#0;n#AnnouncementModel#0;n#!!top" expanded="false" />
+            <marker date="1463500247226" expanded="true" signature="1300:3497" placeholder="SELECT m.*, ..announce_id..." />
+            <marker date="1463500247226" expanded="true" signature="1950:3284" placeholder="SELECT a.ann..." />
+            <marker date="1463500247226" expanded="true" signature="1950:3444" placeholder="SELECT a.ann..." />
+            <marker date="1463500247226" expanded="true" signature="3683:4999" placeholder="SELECT m.*, ..announce_id..." />
+            <marker date="1463500247226" expanded="true" signature="4333:4903" placeholder="SELECT a.ann..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/controllers/Announcements.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-11.923077" vertical-offset="234" max-vertical-offset="2074">
-          <caret line="32" column="35" selection-start-line="32" selection-start-column="13" selection-end-line="32" selection-end-column="35" />
-          <folding />
+        <state vertical-scroll-proportion="-18.307692" vertical-offset="1122" max-vertical-offset="2465">
+          <caret line="141" column="32" selection-start-line="141" selection-start-column="21" selection-end-line="141" selection-end-column="32" />
+          <folding>
+            <element signature="n#PublishAnnouncement#0;n#Announcements#0;n#!!top" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/views/announcements.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5817223" vertical-offset="7574" max-vertical-offset="8449">
-          <caret line="465" column="98" selection-start-line="465" selection-start-column="98" selection-end-line="465" selection-end-column="98" />
+        <state vertical-scroll-proportion="0.721519" vertical-offset="2287" max-vertical-offset="13413">
+          <caret line="158" column="202" selection-start-line="158" selection-start-column="202" selection-end-line="158" selection-end-column="202" />
           <folding />
         </state>
       </provider>
