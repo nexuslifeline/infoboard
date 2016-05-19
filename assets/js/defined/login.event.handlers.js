@@ -87,7 +87,7 @@ $(document).ready(function(){
       function validateRequiredFields(){
             var stat=1;
 
-            $('input[required]').each(function(){
+            $('#frm-login input[required]').each(function(){
                 if($(this).val()==""){
 
                     $(this).focus()

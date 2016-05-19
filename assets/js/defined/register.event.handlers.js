@@ -16,7 +16,7 @@ $(document).ready(function(){
                 type: "POST",
                 url:'Regis/register_account', //call controller class/function to execute
                 data:serialData,
-
+ 
                 success:function(response) {
 
 
