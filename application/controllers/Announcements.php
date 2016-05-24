@@ -14,10 +14,7 @@ class Announcements extends MY_Controller {
 
         parent::__construct('Announcements');
 
-
         $this->_check_account_not_session();
-
-
         $this->load->model('announcementmodel');
         $this->load->model('announcementviewersmodel');
 

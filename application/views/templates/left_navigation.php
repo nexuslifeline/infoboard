@@ -22,36 +22,45 @@
                 </li>
 
 
-                <li>
-                    <a href="Dashboard"><i class="fa fa-th-large"></i> <span class="nav-label">Dashboard</span></span></a>                   
+
+
+                <li class="hidden" data-alias-id="1">
+                    <a href="Dashboard" ><i class="fa fa-th-large"></i> <span class="nav-label">Dashboard</span></span></a>                   
                 </li>
 
 
-                <li>
-                    <a href="#"><i class="fa fa-pencil-square-o"></i> <span class="nav-label">Publish</span><span class="fa arrow"></span></a>
+
+
+
+                <li class="hidden"  data-alias-id="2" >
+                    <a href="#" ><i class="fa fa-pencil-square-o"></i> <span class="nav-label">Publish</span><span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
-                        <li><a href="Announcements">Accouncement</a></li>
-                        <li><a href="">Task</a></li>
+                        <li   class="hidden" data-alias-id="2-1" ><a href="Announcements" >Accouncement</a></li>
+                        <li   class="hidden" data-alias-id="2-2" ><a href="Tasks">Task</a></li>
 
                     </ul>
                 </li>
                
+               
 
-                 <li>
+
+                 <li class="hidden"  data-alias-id="3">
                     <a href="#"><i class="fa fa-group"></i> <span class="nav-label">Masterfile</span><span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
-                        <li><a href="UserManagement">User Management</a></li>
-                        <li><a href="UserGroupManagement">User Group Management</a></li>
-                        <li><a href="#">User Priviledge</a></li>    
+                        <li class="hidden" data-alias-id="3-1"><a href="UserManagement">User Management</a></li>
+                        <li  class="hidden" data-alias-id="3-2"><a href="UserGroupManagement">User Group Management</a></li>
+                    
                     </ul>
                 </li>
                
-                <li class="active">
+
+
+                <li class="hidden"  data-alias-id="4">
                     <a href="#"><i class="fa fa-book"></i> <span class="nav-label">Reference</span><span class="fa arrow"></span></a>
                      <ul class="nav nav-second-level">
 
-                        <li><a href="DepartmentManagement">Department Management</a></li>    
-                        <li><a href="CourseManagement">Course Management</a></li>
+                        <li class="hidden" data-alias-id="4-1"><a href="DepartmentManagement">Department Management</a></li>    
+                        <li class="hidden" data-alias-id="4-2"><a href="CourseManagement">Course Management</a></li>
                                
                     </ul>
                 </li>
@@ -60,23 +69,26 @@
 
             
 
-                <li>
+                <li class="hidden" data-alias-id="5">
                     <a href="#"><i class="fa fa-bar-chart-o"></i> <span class="nav-label">Reports </span><span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
-                        <li><a href="">#</a></li>
-                          <li><a href="">#</a></li>
                             <li><a href="">#</a></li>
-                              <li><a href="">#</a></li>
+                            <li><a href="">#</a></li>
+                            <li><a href="">#</a></li>
+                            <li><a href="">#</a></li>
 
                     </ul>
                 </li>
 
-                  <li>
+
+
+
+                  <li class="hidden" data-alias-id="6">
                     <a href="#"><i class="fa fa-gears"></i> <span class="nav-label">Setting</span><span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
-                        <li><a href="UserGroupSetting">User Group Setting </a></li>
-                        <li><a href="">User Profile</a></li>
-                        <li><a href="">Company Setting</a></li>
+                        <li class="hidden" data-alias-id="6-1"><a href="UserGroupSetting">User Group Setting</a></li>
+                        <li class="hidden" data-alias-id="6-2"><a href="">User Profile</a></li>
+                        <li class="hidden" data-alias-id="6-3"><a href="">System Setting</a></li>
 
                     </ul>
                 </li>
@@ -84,3 +96,7 @@
 
         </div>
     </nav>
+    
+
+
+
