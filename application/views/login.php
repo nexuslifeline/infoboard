@@ -127,7 +127,7 @@
 
     
     </form>
-<button id="btn-login"  class="btn btn-primary block full-width m-b" >Login</button>
+<button id="btn-login"  class="btn btn-custom" style="color: white">Login</button>
 
 
   </div>
@@ -144,7 +144,7 @@
     <form id="frm-register">
 
     
- <button type="button" class="btn btn-primary block full-width m-b" data-toggle="modal" data-target="#student-modal">Register</button>
+ <button type="button" class="btn btn-custom" data-toggle="modal" data-target="#student-modal" style="color: white">Register</button>
 
 
 <!-- Modal -->
@@ -360,7 +360,7 @@
 
 <div class="modal-footer">
     <button id="btn-save" type="button" onclick="return validations();" class="btn btn-success">Save</button>
-    <button id="btn-close" type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+    <button id="btn-close" type="button" class="btn btn-close" data-dismiss="modal">Close</button>
 </div>
 
 
