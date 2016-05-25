@@ -6,10 +6,10 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title> Infoboard | Deapart Management </title>
+    <title> Infoboard | User Group Setting </title>
 
 
-    <?php include('assets/includes/global_css.html'); ?>
+     <?php include('assets/includes/global_css.html'); ?>
 
     <!-- Checkbox / Radio -->
     <link href="assets/css/plugins/iCheck/custom.css" rel="stylesheet">
@@ -31,9 +31,7 @@
     <!-- SUmmernote -->
     <link href="assets/css/plugins/summernote/summernote.css" rel="stylesheet">
     <link href="assets/css/plugins/summernote/summernote-bs3.css" rel="stylesheet">
-
-
-    <style>
+   <style>
         .toolbar{
             float: left;
         }
@@ -77,24 +75,22 @@
             <!-- /top navigation -->
         </div>
 
-
-
         <div class="wrapper wrapper-content"><!-- /main content area -->
             <div class="row">
 
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 animated fadeInRight">
                     <div class="mail-box-header" style="margin-bottom:-25px;">
-                        <h2 style="block:inline;"><i class="fa fa-users"></i> Department  Management </h2>
+                        <h2 style="block:inline;"><i class="fa fa-users"></i> User Group Setting </h2>
 
                     </div>
 
-                    <div class="mail-box" style="padding-left:10px;padding-right:10px;min-height: 550px;">
+                    <div class="mail-box" style="padding-left:10px;padding-right:10px;">
 
 
                         <div class="panel-heading">
                             <div class="panel-options">
                                 <ul class="nav nav-tabs">
-                                    <li class="active"><a data-toggle="tab" href="#tab-1">List of Department</a></li>
+                                    <li class="active"><a data-toggle="tab" href="#tab-1">Users Group</a></li>
                                  
                                 </ul>
                             </div>
@@ -105,18 +101,18 @@
                             <div class="tab-content">
                                 <div id="tab-1" class="tab-pane active">
                                     <div class="table-responsive">
-                                        <table id="tbl_info_list" class="table table-striped table-bordered">
+                                        <table id="tbl_user_group_list" class="table table-striped table-bordered table-hover dataTables-example dataTable ">
                                         <thead>
                                         <tr>
                                             <td></td>
-                                            <td>Department</td>
+                                            <td>Users Group</td>
                                             <td>Description</td>
                                             <td>Date Created</td>
-                                            <td>Action</td>
+                                         
                                         </tr>
                                         </thead>
-                                       <tbody>
-                                     
+                                      <tbody>
+                                      
                                         </tbody>
                                     </table>
                                     </div>
@@ -136,8 +132,7 @@
 
 
                 </div>
-
-
+                
             </div>
         </div><!-- /main content area -->
 
@@ -150,11 +145,13 @@
 </div>
 
 
-<!---/consumer modal--->
-<div class="modal fade" id="info_modal" tabindex="-1" role="dialog" aria-hidden="true">
+
+
+
+
+<div class="modal fade" id="user_group_priviledge_modal" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog"  style="width:50%;">
         <div class="modal-content animated bounceInRight">
-
 
 
             <div class="modal-body"><!--/modal body-->
@@ -163,7 +160,7 @@
                         <div class="panel panel-default" style="margin-bottom:-20px;border-radius:0px;">
                             <div class="ibox float-e-margins">
                                 <div class="ibox-title">
-                                    <h5>Department Management<small class="m-l-sm">Please enter Department Information.</small></h5>
+                                    <h5>User Priviledge Access <small class="m-l-sm">Please configure User Group Link Access.</small></h5>
                                     <div class="ibox-tools">
                                         <a class="collapse-link">
                                             <i class="fa fa-chevron-up"></i>
@@ -179,27 +176,38 @@
                                 </div>
                                 <div class="ibox-content">
                                     <div class="row">
-                                        <form id="frm_info">
+                                       
                                             <div class="col-lg-12 col-md-12 col-sm-12">
-                                                <div class="form-group">
-                                                    <label>Department Title * </label>
-                                                    <input class="form-control" type="text" name="department_title" id="department_title" placeholder="Department"  data-container="body" data-trigger="manual" data-toggle="tooltip" title="Department is required."data-message="Please make sure you enter Department." required >
-                                                </div>
-
-                                                <div class="form-group">
-                                                    <label>Description</label>
-                                                     <textarea style="margin-bottom: 0px" name="department_desc" id="department_desc" class="form-control summernote" >
-                                                     </textarea>
                                                 
+            
+
+
+                                                <div class="row">
+                                                <div class="col-lg-12 col-md-12 col-sm-12">
+
+                                                <div class="table-responsive">
+                                                    <table id="tbl_user_group_priviledge" class="table table-striped table-bordered table-hover dataTables-example dataTable ">
+                                                        <thead>
+                                                            <tr>
+                                                            <td></td>
+                                                            <td>User Priviledge Access</td>
+                                                            
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                                </div>
                                                 </div>
 
-                                                 
 
 
                                             </div>
 
                                     </div>
-                                    </form>
+                                
                                 </div>
                             </div>
                         </div>
@@ -208,44 +216,123 @@
             </div><!--/modal body-->
 
             <div class="modal-footer">
-                <button id="btn_create_info" type="button" class="btn btn-primary"><i class="fa fa-save"></i> <u>R</u>ecord Department </button>
-                <button type="button" class="btn btn-white" data-dismiss="modal"><u>C</u>lose</button>
+                <button id="btn_user_priviledge_access" type="button" class="btn btn-primary"><i class="fa fa-save"></i> <u>S</u>ave Priviledge Acccess </button>
+                <button type="button" id="btn-close-modal" class="btn btn-white" data-dismiss="modal"><u>C</u>lose</button>
             </div>
         </div>
     </div>
-</div><!---/consumer modal--->
+</div>
 
 
 
 
 
-<!-- delete modal-->
-<div id="confirm_modal" data-save-mode="" class="modal fade" tabindex="-1" role="dialog"><!--modal-->
-    <div class="modal-dialog modal-sm">
-        <div class="modal-content"><!---content--->
-            <div class="modal-header">
-                <button type="button" class="close"   data-dismiss="modal" aria-hidden="true">X</button>
-                <h4 class="modal-title"><span id="modal_mode"> </span>RECORD</h4>
 
-            </div>
 
-            <div class="modal-body">
-                <p id="modal-body-message">Are you sure ?</p>
-            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="modal fade" id="user_group_distribution_modal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog"  style="width:50%;">
+        <div class="modal-content animated bounceInRight">
+
+
+            <div class="modal-body"><!--/modal body-->
+                <div class="row" style="margin-left:-25px;margin-right:-25px;"><!--/row-->
+                    <div class="col-lg-12 col-sm-12  col-md-12">
+                        <div class="panel panel-default" style="margin-bottom:-20px;border-radius:0px;">
+                            <div class="ibox float-e-margins">
+                                <div class="ibox-title">
+                                    <h5>User Task Distribution  <small class="m-l-sm">Please configure User  Task Distribution .</small></h5>
+                                    <div class="ibox-tools">
+                                        <a class="collapse-link">
+                                            <i class="fa fa-chevron-up"></i>
+                                        </a>
+                                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                            <i class="fa fa-wrench"></i>
+                                        </a>
+
+                                        <a class="close-link">
+                                            <i class="fa fa-times"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="ibox-content">
+                                    <div class="row">
+                                       
+                                            <div class="col-lg-12 col-md-12 col-sm-12">
+                                                
+            
+
+
+                                                <div class="row">
+                                                <div class="col-lg-12 col-md-12 col-sm-12">
+
+                                                <div class="table-responsive">
+                                                    <table id="tbl_user_group_distribution" class="table table-striped table-bordered table-hover dataTables-example dataTable ">
+                                                        <thead>
+                                                            <tr>
+                                                            <td></td>
+                                                            <td>Department</td>
+                                                            
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                                </div>
+                                                </div>
+
+
+
+                                            </div>
+
+                                    </div>
+                                
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>  <!--/row-->
+            </div><!--/modal body-->
 
             <div class="modal-footer">
-                <button id="btn_yes" type="button" class="btn btn-danger" data-dismiss="modal">Yes</button>
-                <button id="btn-close" type="button" class="btn btn-default" data-dismiss="modal">No</button>
+                <button id="btn_user_distribution_access" type="button" class="btn btn-primary"><i class="fa fa-save"></i> <u>S</u>ave Distribution Acccess </button>
+                <button type="button" id="btn-close-modal-s" class="btn btn-white" data-dismiss="modal"><u>C</u>lose</button>
             </div>
-        </div><!---content---->
+        </div>
     </div>
-</div><!---modal-->
+</div>
 
 
-    
+
+
+
+
+
+
+
+
+
 
 
 <?php include('assets/includes/global_js.php'); ?>
+
 
 <!--- Dropdown / Selectpicker --->
 <script src="assets/css/dropdown-enhance/dist/js/bootstrap-select.min.js"></script>
@@ -263,7 +350,6 @@
 <script type="text/javascript" src="assets/js/plugins/notify/pnotify.nonblock.js"></script>
 
 
-
 <!-- Data Tables -->
 <script src="assets/js/plugins/dataTables/jquery.dataTables.js"></script>
 <script src="assets/js/plugins/dataTables/dataTables.bootstrap.js"></script>
@@ -278,14 +364,14 @@
 
 
 <!--Custom JS-->
-<script src="assets/js/defined/department.management.event.handlers.js"></script>
+<script src="assets/js/defined/user.group.setting.event.handlers.js"></script>
 
 <!-- Summernote -->
 <script src="assets/js/plugins/summernote/summernote.min.js"></script>
 
 
-
-
-
 </body>
+
 </html>
+
+

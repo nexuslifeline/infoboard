@@ -1,21 +1,22 @@
 
+
 $(document).ready(function(){
 
 
 
-    $('#btn-login').click(function(){
+    $('#btn-register').submit(function(){
 
 
         if(validateRequiredFields()){
-        var serialData=$('#frm-login').serializeArray();
+        var serialData=$('#frm-register').serializeArray();
                 console.log(serialData);
              $.ajax({
 
                 dataType:"json",
                 type: "POST",
-                url:'Login/login_account', //call controller class/function to execute
+                url:'Regis/register_account', //call controller class/function to execute
                 data:serialData,
-
+ 
                 success:function(response) {
 
 
@@ -87,7 +88,7 @@ $(document).ready(function(){
       function validateRequiredFields(){
             var stat=1;
 
-            $('#frm-login input[required]').each(function(){
+            $('input[required]').each(function(){
                 if($(this).val()==""){
 
                     $(this).focus()
