@@ -2,6 +2,15 @@
 $(document).ready(function(){
 
 
+    $('#btn-save').click(function(){
+
+
+  var serialData=$('#frm-register').serializeArray();
+                console.log(serialData);
+
+    });
+
+
 
     $('#btn-login').click(function(){
 
