@@ -509,33 +509,6 @@ showNavigation();
 
         };
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         //remove consumer
         var removeInfo=function(){
 
