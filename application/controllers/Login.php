@@ -57,8 +57,9 @@ class Login extends MY_Controller {
 		                    'firstname'          	=> $row->firstname,
 		                    'middlename'          	=> $row->middlename,
 		                    'lastname'          	=> $row->lastname,
-		                    'user_group_id'          	=> $row->user_group_id,
+		                    'user_group_id'         => $row->user_group_id,
 		                    'department_id'         => $row->department_id,
+		                    'user_group_title'		=> $row->user_group_title
 		                );
 		                
 		            }

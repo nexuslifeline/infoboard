@@ -32,7 +32,7 @@
     <link href="assets/css/plugins/summernote/summernote.css" rel="stylesheet">
     <link href="assets/css/plugins/summernote/summernote-bs3.css" rel="stylesheet">
 
-    <link href="assets/css/login/style.css" rel="stylesheet">
+
 
     <link href="assets/css/plugins/select2/select2.min.css" rel="stylesheet">
 
@@ -61,11 +61,7 @@
         }
 
 
-        img{
-            height: 150px;
-            max-height: 250px;
-
-        }
+      
 
         .select2-container{
             min-width: 100%;
