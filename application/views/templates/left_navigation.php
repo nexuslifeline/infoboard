@@ -35,7 +35,7 @@
                 <li class="hidden"  data-alias-id="2" >
                     <a href="#" ><i class="fa fa-pencil-square-o"></i> <span class="nav-label">Publish</span><span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
-                        <li   class="hidden" data-alias-id="2-1" ><a href="Announcements" >Accouncement</a></li>
+                        <li   class="hidden" data-alias-id="2-1" ><a href="Announcements" >Announcement</a></li>
                         <li   class="hidden" data-alias-id="2-2" ><a href="Tasks">Task</a></li>
 
                     </ul>

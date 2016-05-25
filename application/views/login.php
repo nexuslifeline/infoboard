@@ -140,11 +140,8 @@
                         <!--Continually expanded and constantly improved Inspinia Admin Them (IN+)--></p>
 
 <br>
-
-    <form id="frm-register">
-
     
- <button type="button" class="btn btn-primary block full-width m-b" data-toggle="modal" data-target="#student-modal">Register</button>
+ <button type="button" id="btn-register" class="btn btn-primary block full-width m-b" data-toggle="modal" data-target="#student-modal">Register</button>
 
 
 <!-- Modal -->
@@ -173,7 +170,7 @@
         </a>
     </li>
 
-    <li>
+    <li>    
         <a href="#login-info" id="li" data-toggle="tab">
             Login Information
         </a>
@@ -181,7 +178,9 @@
     
 </ul>
 
- <form id="frm_user_details">
+</form>
+
+ <form id="frm_user_details" name ="frm_user_details">
 <div id="tabs" class="tab-content"  style="margin-left:10px;margin-right:10px;"><!-- /tab contents -->
     <!----><div class="tab-pane fade in active" id="personal-info" style="border-bottom:1px solid #d5d4d4;border-right:1px solid #d5d4d4;border-left:1px solid #d5d4d4;padding:15px;">
        
@@ -197,7 +196,9 @@
 
         <div class="form-group">
         <label>Student No</label>
-        <input class="form-control" type="text" name="student_no" id="student_no" placeholder="student no" data-container="body" data-trigger="manual" data-toggle="tooltip" title="Student no is required." data-message="Please make sure you enter Student No." required="" value="">
+
+        <input  class="form-control" type="text" name="student_no" id="student_no" placeholder="student no" data-container="body" data-trigger="manual" data-toggle="tooltip" title="Student no is required." data-message="Please make sure you enter Student No." required="" value="">
+       
         </div>
 
 
@@ -265,14 +266,13 @@
      </div>
 
     </div>
-    </form>
+
 
 
 
 <div class="tab-pane fade" id="location-info" style="border-bottom:1px solid #d5d4d4;border-right:1px solid #d5d4d4;border-left:1px solid #d5d4d4;padding:15px;">
         <div class="row">
-         <form id="frm_info">
-
+       
 <div class="col-lg-6">
 
         
@@ -317,7 +317,7 @@
 
 </div>
         
-            </form>
+        
 
         </div>
     </div>
@@ -330,7 +330,7 @@
 
     <div class="tab-pane fade" id="login-info" style="border-bottom:1px solid #d5d4d4;border-right:1px solid #d5d4d4;border-left:1px solid #d5d4d4;padding:15px;">
         <div class="row">
-         <form id="frm_info">
+        
             <div class="col-lg-8">
 
                 <label>Username * </label>
@@ -356,10 +356,9 @@
 </div><!--form-group-->
 </div>
 </div>
-</form>
 
 <div class="modal-footer">
-    <button id="btn-save" type="button" onclick="return validations();" class="btn btn-success">Save</button>
+    <button id="btn-save" type="button" ` class="btn btn-success">Save</button>
     <button id="btn-close" type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 </div>
 
