@@ -4,7 +4,7 @@ class Login extends MY_Controller {
 
     function __construct()
     {
-        parent::__construct();
+        parent::__construct('Login');
    		$this->load->model('LoginProcessModel');
 
     }
@@ -15,7 +15,7 @@ class Login extends MY_Controller {
 
     	$data['item'] =' Login';
     	$data['name'] =' Infoboard';
-        $this->load->helper(array('form'));
+        //$this->load->helper(array('form'));
         $this->load->view('login',$data);
     }
 
@@ -57,7 +57,7 @@ class Login extends MY_Controller {
 		                    'firstname'          	=> $row->firstname,
 		                    'middlename'          	=> $row->middlename,
 		                    'lastname'          	=> $row->lastname,
-		                    'user_group'          	=> $row->user_group_id,
+		                    'user_group_id'          	=> $row->user_group_id,
 		                    'department_id'         => $row->department_id,
 		                );
 		                

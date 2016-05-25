@@ -32,7 +32,7 @@
     <link href="assets/css/plugins/summernote/summernote.css" rel="stylesheet">
     <link href="assets/css/plugins/summernote/summernote-bs3.css" rel="stylesheet">
 
-    <style>
+   <style>
         .toolbar{
             float: left;
         }
@@ -42,13 +42,21 @@
             margin-bottom:5px;
         }
 
+        [contenteditable="true"]{
+            border: 1px solid black;
+            min-height: 180px;
+            max-height: 180px;
+            margin: 10px;
+        }
+
         [contenteditable="true"]:active,
         [contenteditable="true"]:focus{
             border:3px solid #F5C116;
             outline:none;
-
             background: white;
         }
+
+
     </style>
 </head>
 
@@ -179,7 +187,7 @@
 
 
                                                   </div>
-
+                                                <h2 style="block:inline;"><i class="fa fa-users"></i> Login Details  </h2>
                                                 <div class="form-group">
                                                     <label>Username * </label>
                                                     <input class="form-control" type="text" name="username" id="username" placeholder="Username"  data-container="body" data-trigger="manual" data-toggle="tooltip" title="Username is required."data-message="Please make sure you enter Username." required >
@@ -188,7 +196,7 @@
                                                   <div class="form-group">
                                                     <label>Email Address * </label>
                                                     <input class="form-control" type="email" name="email" id="email" placeholder="Email Address"  data-container="body" data-trigger="manual" data-toggle="tooltip" title="Email Address is required."data-message="Please make sure you enter Email Address." required >
-                                               </div>
+                                                </div>
 
                                                  <div class="form-group">
                                                     <label>Password * </label>
@@ -202,11 +210,30 @@
 
 
 
-
                                             </div>
-
                                     </div>
                                     </form>
+
+
+                                <div class="row">
+
+                                        <form id="frm_user_details">
+                                            <div class="col-lg-12 col-md-12 col-sm-12">
+                                              <div id="frm-info-extension">
+                                                  
+
+
+
+                                              </div>
+                                            </div>
+
+
+                                        </form>
+                                </div>
+
+
+                                       
+
                                 </div>
                             </div>
                         </div>

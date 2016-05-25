@@ -1,6 +1,43 @@
 
 $(document).ready(function(){
-    //initialize customer list
+
+
+   var  showNavigation=function(a){
+                
+                var serialData=[];
+                var user_group_id = $('.user-session').attr('data-group-id');
+            
+             serialData.push({
+                    name:"user_group_id",value: user_group_id
+                });
+
+                            $.ajax({
+                                    dataType:"json",
+                                    type: "POST",
+                                    url:'UserGroupSetting/ActionGetDeniedAccessLink', //call controller class/function to execute
+                                    data:serialData,
+                                success:function(response) {
+                                       
+                                       // console.log(response);
+
+                            $.each(response,function(index,value){
+                                var alias_id  = value.alias_id; 
+                                var parent = alias_id.split('-');
+                               
+                                 $("[data-alias-id='"+parent[0]+"']").removeClass("hidden");
+                                 $("[data-alias-id='"+alias_id+"']").removeClass("hidden");
+      
+                            });
+
+                                },error: function(xhr, status, error) {
+                                // check status && error
+                                console.log(xhr);
+                                }
+                             });
+            };
+
+showNavigation();
+
         var infoListModule = (function(){
             var tbl_info_list;
 
@@ -27,6 +64,37 @@ $(document).ready(function(){
                     });
 
                     //show invoice info modal
+
+
+
+            var serialData = [];
+            var user_group = row.find('td').eq(3).text();
+            var user_account_id    = row.find('td:eq(0) input[type="checkbox"]').val();
+
+
+            serialData.push(
+                {name:"user_account_id",value:user_account_id},
+                {name:"user_group",value: user_group.toUpperCase()}
+           );
+
+
+
+           $.ajax({
+                dataType:"html",
+                type: "POST",
+                url:'UserManagement/CreateForm', //call controller class/function to execute
+                data:serialData,
+                success:function(response) {
+                
+                    $('#frm-info-extension').html(response);
+
+                },error: function(xhr, status, error) {
+                    // check status && error
+                    console.log(xhr);
+                }
+            })
+
+
                     infoModalModule.showModal();
 
                 });
@@ -151,6 +219,37 @@ $(document).ready(function(){
 
 
 
+            var loadForm  =function(){
+
+                        var serialData = [];
+                        serialData.push(
+                
+                            {name:"user_group",value: 'ADMINISTRATOR'}
+                       );
+
+
+                       console.log(serialData);
+                       $.ajax({
+                            dataType:"html",
+                            type: "POST",
+                            url:'UserManagement/CreateForm', //call controller class/function to execute
+                            data:serialData,
+                            success:function(response) {
+                            
+                                $('#frm-info-extension').html(response);
+
+                            },error: function(xhr, status, error) {
+                                // check status && error
+                                console.log(xhr);
+                            }
+                        })
+
+
+
+            };
+
+
+
 
             var lastPage=function(){
                 $('#tbl_info_list ul li:nth-last-child(2) a').click(); //trigger 2nd to the last link, the last page number
@@ -196,6 +295,7 @@ $(document).ready(function(){
                 createToolBarButton:    createToolBarButton,
                 showInfoList:           showInfoList,
                 showUserGroupList :      showUserGroupList,
+                loadForm          :      loadForm,
                 addRow:                 addRow,
                 updateRow:              updateRow,
                 removeRow:              removeRow,
@@ -308,34 +408,31 @@ $(document).ready(function(){
             });
 
 
-            $('#user_group_id').change(function(){/*
-               
-               
-                  $('#info_section').html('<p align="center"><img src="assets/img/ajax-loader-lg.gif" /></p>');
-                createUserForm()
-                .success(function(response){ //if request is successful
-    
-                     $('#info_section').html(response)
-                        $('.summernote').summernote();
 
-                            })
-                            .error(function(xhr,stat,error){ //if error occurs
-                                alert(xhr.responseText);
-                                console.log(xhr);
-                            });
-                
+            $('#user_group_id').change(function(){
 
-            var     userRole  = $(this).find('option:selected').text();
-                userInfoModalModule.setUserRole(userRole);
-                if(_selectedRole=="EMPLOYER"){
-                $('#info_section').html($('#hidden_emp_form').html());
-                $('#hidden_emp_form').html('')
-                        $('.summernote').summernote();
+                    var serialData = [];
+                    var     user_group  = $(this).find('option:selected').text(); 
+                    serialData.push(
+                        {name:"user_account_id",value:_selectedID !=undefined ? _selectedID : '0' },
+                        {name:"user_group",value: user_group.toUpperCase()}
+                   );
 
+                    console.log(serialData);
+                   $.ajax({
+                        dataType:"html",
+                        type: "POST",
+                        url:'UserManagement/CreateForm', //call controller class/function to execute
+                        data:serialData,
+                        success:function(response) {
+                            $('#frm-info-extension').html(response);
 
-
-                }
-        */alert('dsd');
+                        },error: function(xhr, status, error) {
+                            // check status && error
+                            console.log(xhr);
+                        }
+                    })    
+   
             });
 
         })();
@@ -367,25 +464,23 @@ $(document).ready(function(){
         //add new consumer
         var createNewInfo=function(){
 
-            var serialData=$('#frm_info').serializeArray();
+            var serialData=$('#frm_info,#frm_user_details').serializeArray();
 
-       /*     var userfile = $('#supload-file-info').html();
-               
-               serialData.push({
-                name:"userfile",value: userfile
-            });
+            var  user_group  = $('#user_group_id').find('option:selected').text(); 
 
 
-*/
-          console.log(serialData);
-       
-            
+
+           serialData.push(
+                        {name:"user_group",value: user_group.toUpperCase()}
+                   );
+
+            console.log(serialData);
             return $.ajax({
                 "dataType":"json",
                 "type":"POST",
                  fileElementId:'userfile',
                 "url":"UserManagement/ActionSaveUserInfo",
-                "data":serialData,
+                "data":serialData
             });
 
 
@@ -394,18 +489,17 @@ $(document).ready(function(){
         //update consumer
         var updateInfo=function(){
 
-            var serialData=$('#frm_info').serializeArray();
-            serialData.push({
-                name:"id",value: _selectedID
-            });
+            var serialData  = $('#frm_info,#frm_user_details').serializeArray();
+            var user_group  = $('#user_group_id').find('option:selected').text(); 
+ 
 
+            serialData.push(
+                {name:"id",value: _selectedID},
+                {name:"user_group",value: user_group.toUpperCase()}
+                );
 
-            var country_desc = $('.summernote').code();
+ 
                
-               serialData.push({
-                name:"country_desc",value: country_desc
-            });
-
             return $.ajax({
                 "dataType":"json",
                 "type":"POST",
@@ -493,9 +587,10 @@ $(document).ready(function(){
             $('input[name="confirm_password"]').val(data.password);
             $('input[name="email"]').val(data.email);
             $('#user_group_id').val(data.user_group_id);
-            $('textarea[name="country_desc"]').val(data.country_desc);
-            $('.summernote').code(data.country_desc);
-         
+
+
+
+
         };
 
 
@@ -556,7 +651,7 @@ $(document).ready(function(){
     infoListModule.createToolBarButton(_btnNew);
     infoListModule.showInfoList();
     infoListModule.showUserGroupList();
-
+    infoListModule.loadForm();
     $('#btn_new_info').click(function(){
         infoModalModule.setMode("new");
         infoModalModule.clearFields(); //clear fields

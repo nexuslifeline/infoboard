@@ -151,6 +151,20 @@ class UserGroupManagementModel extends CI_Model {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
 
 

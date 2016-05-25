@@ -300,6 +300,7 @@
 
 <?php include('assets/includes/global_js.php'); ?>
 
+
 <!--- Dropdown / Selectpicker --->
 <script src="assets/css/dropdown-enhance/dist/js/bootstrap-select.min.js"></script>
 <script src="assets/js/plugins/typehead/bootstrap3-typeahead.js"></script>
@@ -322,7 +323,46 @@
 <script src="assets/js/plugins/dataTables/dataTables.tableTools.min.js"></script>
 
 
+<script type="text/javascript">
+    
 
+    
+   var  showNavigation=function(a){
+                
+                var serialData=[];
+                var user_group_id = $('.user-session').attr('data-group-id');
+            
+             serialData.push({
+                    name:"user_group_id",value: user_group_id
+                });
+
+                            $.ajax({
+                                    dataType:"json",
+                                    type: "POST",
+                                    url:'UserGroupSetting/ActionGetDeniedAccessLink', //call controller class/function to execute
+                                    data:serialData,
+                                success:function(response) {
+                                       
+                                       // console.log(response);
+
+                            $.each(response,function(index,value){
+                                var alias_id  = value.alias_id; 
+                                var parent = alias_id.split('-');
+                               
+                                 $("[data-alias-id='"+parent[0]+"']").removeClass("hidden");
+                                 $("[data-alias-id='"+alias_id+"']").removeClass("hidden");
+      
+                            });
+
+                                },error: function(xhr, status, error) {
+                                // check status && error
+                                console.log(xhr);
+                                }
+                             });
+            }();
+
+
+</script>
 
 
 

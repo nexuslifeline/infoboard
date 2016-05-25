@@ -33,7 +33,7 @@
     <link href="assets/css/plugins/summernote/summernote-bs3.css" rel="stylesheet">
 
 
-    <style>
+   <style>
         .toolbar{
             float: left;
         }
@@ -43,13 +43,21 @@
             margin-bottom:5px;
         }
 
+        [contenteditable="true"]{
+            border: 1px solid black;
+            min-height: 180px;
+            max-height: 180px;
+            margin: 10px;
+        }
+
         [contenteditable="true"]:active,
         [contenteditable="true"]:focus{
             border:3px solid #F5C116;
             outline:none;
-
             background: white;
         }
+
+
     </style>
 </head>
 
