@@ -27,7 +27,8 @@
     <link href="assets/css/plugins/dataTables/dataTables.tableTools.min.css" rel="stylesheet">
     <link href="assets/js/plugins/notify/pnotify.core.css" rel="stylesheet">
 
-
+    <!--- chosen ----->
+    <link href="assets/css/plugins/chosen/chosen.css" rel="stylesheet">
 
     <!-- morris -->
     <link href="assets/css/plugins/morris/morris-0.4.3.min.css" rel="stylesheet">
@@ -58,6 +59,25 @@
             border: 1px #ff0000 solid;
         }
 
+        .select2-container{
+            min-width: 100%;
+        }
+
+        .glyphicon.spinning {
+            animation: spin 1s infinite linear;
+            -webkit-animation: spin2 1s infinite linear;
+        }
+
+        @keyframes spin {
+            from { transform: scale(1) rotate(0deg); }
+            to { transform: scale(1) rotate(360deg); }
+        }
+
+        @-webkit-keyframes spin2 {
+            from { -webkit-transform: rotate(0deg); }
+            to { -webkit-transform: rotate(360deg); }
+        }
+
     </style>
 </head>
 
@@ -81,7 +101,7 @@
     </div>
 
     <!--breadcrumbs-->
-    <div class="row wrapper border-bottom white-bg page-heading">
+    <div  id="div_breadcrumbs" class="row wrapper border-bottom white-bg page-heading">
         <div class="col-lg-10">
             <br /><b>
             <ol class="breadcrumb">
@@ -99,10 +119,7 @@
     <div class="wrapper wrapper-content"><!-- /main content area -->
 
 
-
-
-
-        <div class="row">
+        <div id="div_task_list" class="row">
             <div class="col-lg-12">
             <div class="table-responsive">
             <table id="tbl_tasks_list" class="table table-striped table-bordered table-hover" >
@@ -114,6 +131,7 @@
                 <th>Deadline</th>
                 <th>Completed</th>
                 <th>%</th>
+                <th></th>
             </tr>
             </thead>
             <tbody>
@@ -126,6 +144,128 @@
             </div>
             </div>
         </div>
+
+
+        <div id="div_task_entry" class="row" style="display: none;">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="ibox float-e-margins">
+            <div class="ibox-title">
+                <h5>Publish new Task <small>Create and Publish task to other users.</small></h5>
+                <div class="ibox-tools">
+                    <a id="close-link">
+                        <i class="fa fa-times"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="ibox-content">
+
+                <form id="frm_task" method="get" class="form-horizontal">
+                    <div class="form-group"><label class="col-sm-2 control-label">Title :</label>
+                        <div class="col-sm-10"><input name="task_title" type="text" class="form-control"></div>
+                    </div>
+
+                    <div class="hr-line-dashed"></div>
+
+                    <div class="form-group"><label class="col-sm-2 control-label">Description :</label>
+                        <div class="col-sm-10"><textarea name="task_description" class="form-control" rows="10"></textarea></div>
+                    </div>
+
+                    <div class="hr-line-dashed"></div>
+
+                    <div class="form-group">
+                            <label class="col-sm-2 control-label">Deadline :</label>
+
+                            <div class="col-sm-10">
+                                <div class="input-group date">
+                                    <span class="input-group-addon"><i class="fa fa-calendar"></i></span><input id="txt_deadline" name="submission_deadline" type="text" class="form-control" value="<?php echo date('m/d/Y'); ?>">
+                                </div>
+
+                            </div>
+
+                    </div>
+
+                    <div class="hr-line-dashed"></div>
+
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Departments :</label>
+
+                        <div class="col-sm-10">
+                            <select id="cbo_departments"  multiple="multiple">
+                                <?php foreach($departments as $row){ ?>
+                                    <option value="<?php echo($row->department_id); ?>"><?php echo($row->department_title); ?></option>
+                                <?php } ?>
+                            </select>
+
+
+                            <span class="help-block m-b-none">Optional. Please specify the department this task will be visible.</span>
+
+                        </div>
+
+                    </div>
+
+                    <div class="hr-line-dashed"></div>
+
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Employee :</label>
+
+                        <div class="col-sm-10">
+                            <select id="cbo_employees"  multiple="multiple">
+                                <?php foreach($employees as $row){ ?>
+                                    <option value="<?php echo($row->user_account_id); ?>"><?php echo($row->emp_fname.' '.$row->emp_lname); ?></option>
+                                <?php } ?>
+                            </select>
+
+
+                            <span class="help-block m-b-none">Optional. Please specify employee who will receive this task.</span>
+
+                        </div>
+
+                    </div>
+
+
+
+
+                </form>
+
+                <br />
+
+                <div class="hr-line-dashed"></div>
+
+                <div class="form-group">
+                    <div class="col-sm-4 col-sm-offset-2">
+                        <button id="btn_save" class="btn btn-primary" type="submit"><span class=""></span> Save changes</button>
+                        <button id="btn_cancel" class="btn btn-white" type="submit">Cancel</button>
+                    </div>
+                </div>
+
+            </div>
+            </div>
+            </div>
+        </div>
+
+
+        <div id="modal_confirmation" class="modal fade" tabindex="-1" role="dialog"><!--modal-->
+            <div class="modal-dialog modal-sm">
+                <div class="modal-content"><!---content--->
+                    <div class="modal-header">
+                        <button type="button" class="close"   data-dismiss="modal" aria-hidden="true">X</button>
+                        <h4 class="modal-title"><span id="modal_mode"> </span>Confirm Deletion</h4>
+
+                    </div>
+
+                    <div class="modal-body">
+                        <p id="modal-body-message">Are you sure ?</p>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button id="btn_yes" type="button" class="btn btn-danger" data-dismiss="modal">Yes</button>
+                        <button id="btn_close" type="button" class="btn btn-default" data-dismiss="modal">No</button>
+                    </div>
+                </div><!---content---->
+            </div>
+        </div><!---modal-->
+
+
         <!-- /footer -->
         <?php $this->load->view('templates/footer'); ?>
         <!-- /footer -->
@@ -186,66 +326,69 @@
 <!-- Data picker -->
 <script src="assets/js/plugins/datapicker/bootstrap-datepicker.js"></script>
 
+<!-- Chosen -->
+<script src="assets/js/plugins/chosen/chosen.jquery.js"></script>
+
 <!-- Sparkline -->
 <script src="assets/js/plugins/sparkline/jquery.sparkline.min.js"></script>
 
-
-    <script>
-        $(document).ready(function(){
+<script type="text/javascript">
 
 
 
+    var  showNavigation=function(a){
 
+        var serialData=[];
+        var user_group_id = $('.user-session').attr('data-group-id');
 
-var  showNavigation=function(a){
-                
-                var serialData=[];
-                var user_group_id = $('.user-session').attr('data-group-id');
-            
-             serialData.push({
-                    name:"user_group_id",value: user_group_id
+        serialData.push({
+            name:"user_group_id",value: user_group_id
+        });
+
+        $.ajax({
+            dataType:"json",
+            type: "POST",
+            url:'UserGroupSetting/ActionGetDeniedAccessLink', //call controller class/function to execute
+            data:serialData,
+            success:function(response) {
+
+                // console.log(response);
+
+                $.each(response,function(index,value){
+                    var alias_id  = value.alias_id;
+                    var parent = alias_id.split('-');
+
+                    $("[data-alias-id='"+parent[0]+"']").removeClass("hidden");
+                    $("[data-alias-id='"+alias_id+"']").removeClass("hidden");
+
                 });
 
-                            $.ajax({
-                                    dataType:"json",
-                                    type: "POST",
-                                    url:'UserGroupSetting/ActionGetDeniedAccessLink', //call controller class/function to execute
-                                    data:serialData,
-                                success:function(response) {
-                                       
-                                       // console.log(response);
-
-                            $.each(response,function(index,value){
-                                var alias_id  = value.alias_id; 
-                                var parent = alias_id.split('-');
-                               
-                                 $("[data-alias-id='"+parent[0]+"']").removeClass("hidden");
-                                 $("[data-alias-id='"+alias_id+"']").removeClass("hidden");
-      
-                            });
-
-                                },error: function(xhr, status, error) {
-                                // check status && error
-                                console.log(xhr);
-                                }
-                             });
-            };
-
-showNavigation();
+            },error: function(xhr, status, error) {
+                // check status && error
+                console.log(xhr);
+            }
+        });
+    }();
 
 
+</script>
 
 
+    <script>
 
+        /**
+         * Created by : Paul Christian Rueda
+         * Date : May 24, 2016 @ 10:17AM
+         * */
+        $(document).ready(function(){
 
-
-
-
-
-
+            var dt; var _txnMode; var _selectedID; var _selectRowObj;
 
             var initializeControls=function(){
-                var dt = $('#tbl_tasks_list').DataTable( {
+
+                dt = $('#tbl_tasks_list').DataTable( {
+                    "dom": '<"toolbar">frtip',
+                    "bLengthChange":false,
                     "ajax": "tasks/transaction/get",
                     "columns": [
                         {
@@ -255,14 +398,42 @@ showNavigation();
                             "data":           null,
                             "defaultContent": ""
                         },
-                        { "targets": [1],"data": "task_title" },
+                        { "targets": [1],"data": "task_title"},
                         { "targets": [2],"data": "task_description" },
-                        { "targets": [2],"data": "submission_deadline" },
-                        { "targets": [4],"data": "completed_count" },
-                        { "targets": [5],"data": "completed_percent" }
-                    ],
-                    "order": [[1, 'asc']]
+                        { "targets": [2],"data": "deadline" },
+                        { "targets": [4],"data": "emp_total_accomplished" },
+                        { "targets": [5],"data": "per_completed" },
+                        {
+                            "targets": [6],
+                            "data": null,
+                            "render": function (data, type, full, meta){
+                                var btn_edit='<button class="btn btn-white btn-sm" name="edit_info"  style="margin-left:-15px;" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-pencil"></i> </button>';
+                                var btn_trash='<button class="btn btn-white btn-sm" name="remove_info" style="margin-right:-15px;" data-toggle="tooltip" data-placement="top" title="Move to trash"><i class="fa fa-trash-o"></i> </button>';
+                                return '<center>'+btn_edit+btn_trash+'</center>';
+                            }
+                        }
+                    ]
                 } );
+
+
+                $('#txt_deadline').datepicker({
+                    todayBtn: "linked",
+                    keyboardNavigation: false,
+                    forceParse: false,
+                    calendarWeeks: true,
+                    autoclose: true
+
+                });
+
+                $("#cbo_departments,#cbo_employees").select2();
+
+
+
+                var createToolBarButton=function(){
+                    var _btnNew='<button class="btn btn-white btn-sm"  id="btn_new_task" data-toggle="modal" data-target="#info_modal" data-placement="left" title="Publish new task" >'+
+                        '<i class="fa fa-laptop"></i> Publish new task</button>';
+                    $("div.toolbar").html(_btnNew);
+                }();
 
 
                 var dtBindEventHandlers=function(){
@@ -296,7 +467,7 @@ showNavigation();
                             '<td width="70%">'+
 
                                 '<table class="table table-striped table-bordered table-hover" width="100%" border="1">'+
-                                    '<thead><tr><th>Name</th><th>Date Accomplished</th><th>Status</th></tr></thead>'+
+                                    '<thead><tr><th>Name</th><th>Date Accomplished</th><th align=""><center>Accomplished</center></th></tr></thead>'+
                                     '<tbody>'+
                                         _structure
                                     '</tbody>'+
@@ -358,21 +529,198 @@ showNavigation();
                             $('#'+id+' td.details-control').trigger( 'click' );
                         } );
                     } );
+
+
+
+
+                    $('#tbl_tasks_list tbody').on('click','button[name="edit_info"]',function(){
+                        _txnMode="edit";
+                        _selectRowObj=$(this).closest('tr');
+                        var data=dt.row(_selectRowObj).data();
+
+                        //console.log(data);
+                        _selectedID=data.task_id;
+                        $('input[name="task_title"]').val(data.task_title);
+                        $('textarea[name="task_description"]').val(data.task_description);
+                        $('input[name="submission_deadline"]').val(data.deadline);
+                        $('#cbo_departments').select2('val',data.DepartmentIDList.split(","));
+                        $('#cbo_employees').select2('val',data.UserIDList.split(","));
+
+
+
+
+                        /*('input,textarea').each(function(){
+                            var _elem=$(this);
+                            $.each(data,function(name,value){
+                                if(_elem.attr('name')==name){
+                                    _elem.val(value);
+                                }
+                            });
+                        });*/
+
+                        $('#div_task_entry').show();
+                        $('#div_task_list,#div_breadcrumbs').hide();
+
+                    });
+
+
+                    $('#tbl_tasks_list tbody').on('click','button[name="remove_info"]',function(){
+                        _selectRowObj=$(this).closest('tr');
+                        var data=dt.row(_selectRowObj).data();
+                        _selectedID=data.task_id;
+                        $('#modal_confirmation').modal('show');
+                    });
+
+
                 }();
-
-
 
 
 
             }();
 
 
+            var bindEventHandlers=function(){
 
 
 
+                $('#btn_new_task').click(function(){
+                    _txnMode="new";
+                    clearControls();
+                    showTaskEntry();
+                });
+
+                $('#close-link,#btn_cancel').click(function(){
+                    showTaskList();
+                });
+
+                $('#btn_save').click(function(){
+                    if(_txnMode=="new"){
+                        publishTask().done(function(response){
+                            showNotification(response);
+                            clearControls();
+                            dt.row.add(response.row_added[0]).draw();
+                        }).always(function(){
+                            $('#btn_save').find('span').removeAttr('class');
+                        });
+                    }else{
+                        updateTask().done(function(response){
+                            showNotification(response);
+                            dt.row(_selectRowObj).data(response.row_updated[0]).draw();
+                            showTaskList();
+                        });
+                    }
+
+
+                });
+
+
+                $('#btn_yes').click(function(){
+                    removeTask().done(function(response){
+                        showNotification(response);
+                        dt.row(_selectRowObj).remove().draw();
+                    });
+                });
+
+
+            }();
+
+
+            var publishTask=function(){
+                return $.ajax({
+                    "dataType":"json",
+                    "type":"POST",
+                    "url":"tasks/transaction/create",
+                    "data":_data(),
+                    "beforeSend": function(){
+                        $('#btn_save').find('span').addClass('glyphicon glyphicon-refresh spinning');
+                    }
+                });
+            };
+
+
+            var updateTask=function(){
+                return $.ajax({
+                    "dataType":"json",
+                    "type":"POST",
+                    "url":"tasks/transaction/modify",
+                    "data":_data(),
+                    "beforeSend": function(){
+                        $('#btn_save').find('span').addClass('glyphicon glyphicon-refresh spinning');
+                    },
+                    "complete": function(){
+                        $('#btn_save').find('span').removeAttr('class');
+                    }
+                });
+            };
+
+            var removeTask=function(){
+                return $.ajax({
+                    "dataType":"json",
+                    "type":"POST",
+                    "url":"tasks/transaction/delete",
+                    "data":{task_id : _selectedID}
+                });
+            };
+
+
+            var showNotification=function(value){
+                PNotify.removeAll(); //remove all notifications
+                new PNotify({
+                    title: 'Notification',
+                    text:  value.msg,
+                    type:  value.stat
+                });
+            };
+
+            var _data=function(){
+
+                var serialData=$('#frm_task').serializeArray();
+
+                var departments=$('#cbo_departments').select2('data');
+                $.each(departments,function(i,value){
+                    serialData.push(
+                        {name:"departments[]",value: value.id}
+                    );
+                });
+
+                var employees=$('#cbo_employees').select2('data');
+                $.each(employees,function(i,value){
+                    serialData.push(
+                        {name:"employees[]",value: value.id}
+                    );
+                });
+
+                if(_txnMode=="edit"){
+                    serialData.push(
+                        {name:"task_id",value: _selectedID}
+                    );
+                }
+
+
+                return serialData;
+            };
 
 
 
+            var showTaskList=function(){
+                $('#div_task_list,#div_breadcrumbs').show();
+                $('#div_task_entry').hide();
+            };
+
+            var showTaskEntry=function(){
+                $('#div_task_entry').show();
+                $('#div_task_list,#div_breadcrumbs').hide();
+            }
+
+            var clearControls=function(){
+                //var _currentDate=<?php echo date('m/d/Y').";" ; ?>
+                $('input[name="task_title"]').val('');
+                $('textarea[name="task_description"]').val('');
+                $('input[name="submission_deadline"]').val('');
+                $('#cbo_departments').select2('val',0);
+                $('#cbo_employees').select2('val',0);
+                $('#txt_deadline').val(moment().format('M/D/YYYY') );
+            };
         });
 
 

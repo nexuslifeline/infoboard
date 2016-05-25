@@ -65,6 +65,10 @@
 
         }
 
+        .select2-container{
+            min-width: 100%;
+        }
+
     </style>
 </head>
 
@@ -277,6 +281,9 @@
                 </div>
             </div><!---modal-->
 
+
+
+
             <div id="modal_announcement"  class="modal fade" tabindex="-1" role="dialog"><!--modal-->
             <div class="modal-dialog modal-sm" style="width: 65%;">
                 <div class="modal-content"><!---content--->
@@ -417,6 +424,46 @@
     <!-- Data picker -->
     <script src="assets/js/plugins/datapicker/bootstrap-datepicker.js"></script>
 
+    <script type="text/javascript">
+
+
+
+        var  showNavigation=function(a){
+
+            var serialData=[];
+            var user_group_id = $('.user-session').attr('data-group-id');
+
+            serialData.push({
+                name:"user_group_id",value: user_group_id
+            });
+
+            $.ajax({
+                dataType:"json",
+                type: "POST",
+                url:'UserGroupSetting/ActionGetDeniedAccessLink', //call controller class/function to execute
+                data:serialData,
+                success:function(response) {
+
+                    // console.log(response);
+
+                    $.each(response,function(index,value){
+                        var alias_id  = value.alias_id;
+                        var parent = alias_id.split('-');
+
+                        $("[data-alias-id='"+parent[0]+"']").removeClass("hidden");
+                        $("[data-alias-id='"+alias_id+"']").removeClass("hidden");
+
+                    });
+
+                },error: function(xhr, status, error) {
+                    // check status && error
+                    console.log(xhr);
+                }
+            });
+        }();
+
+
+    </script>
 
     <script>
         $(document).ready(function(){
