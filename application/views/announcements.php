@@ -32,6 +32,8 @@
     <link href="assets/css/plugins/summernote/summernote.css" rel="stylesheet">
     <link href="assets/css/plugins/summernote/summernote-bs3.css" rel="stylesheet">
 
+    <link href="assets/css/login/style.css" rel="stylesheet">
+
     <link href="assets/css/plugins/select2/select2.min.css" rel="stylesheet">
 
     <style>
@@ -129,7 +131,7 @@
                                         </div>
 
 
-                                        <button id="btn_publish" type="button" class="col-lg-12 col-md-12 col-sm-12 col-xs-12 btn btn-primary" style="margin-top: -55px;">Publish this Announcement</button>
+                                        <button id="btn_publish" type="button" class="col-lg-12 col-md-12 col-sm-12 col-xs-12 btn btn-custom" style="margin-top: -55px;">Publish this Announcement</button>
 
                                     </div>
 
@@ -396,6 +398,8 @@
 
 <!-- iCheck -->
 <script src="assets/js/plugins/iCheck/icheck.min.js"></script>
+
+
 
 <!-- Datepicker -->
 <script src="assets/js/plugins/datapicker/bootstrap-datepicker.js"></script>
