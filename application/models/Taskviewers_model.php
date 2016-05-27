@@ -17,6 +17,13 @@ class Taskviewers_model extends CI_Model
         return $this->db->insert($this->table, $this);
     }
 
+    function modify_where_array($array){
+        $this->db->where($array);
+        return $this->db->update($this->table, $this);
+    }
+
+
+
     function last_insert_id(){
         return $this->db->insert_id();
     }

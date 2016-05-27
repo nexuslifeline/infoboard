@@ -338,8 +338,13 @@ showNavigation();
 
         //add new consumer
         var createNewUserRole=function(){
+            //alert("dd");
+            //event.preventDefault();
+
 
             var serialData=$('#frm_user_role_info').serializeArray();
+            console.log(serialData);
+
 
             return $.ajax({
                 "dataType":"json",

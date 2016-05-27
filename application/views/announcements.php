@@ -155,7 +155,7 @@
                                 <div class="form-group">
                                     <label class="font-noraml">Start Publish Date</label>
                                     <div class="input-group date">
-                                        <span class="input-group-addon"><i class="fa fa-calendar"></i></span><input  id="datepicker1" type="text" class="form-control" value="<?php echo date('m/d/Y'); ?>">
+                                        <span class="input-group-addon"><i class="fa fa-calendar"></i></span><input  id="datepicker1" type="text" class="form-control" value="<?php echo date('m/1/Y'); ?>">
                                     </div>
                                 </div>
 
@@ -309,7 +309,7 @@
                                 <div class="form-group">
                                     <label class="font-noraml">Start Publish Date</label>
                                     <div class="input-group date">
-                                        <span class="input-group-addon"><i class="fa fa-calendar"></i></span><input  id="dtStart" type="text" class="form-control" value="03/04/2014">
+                                        <span class="input-group-addon"><i class="fa fa-calendar"></i></span><input  id="dtStart" type="text" class="form-control" >
                                     </div>
                                 </div>
                             </div>
@@ -318,7 +318,7 @@
                                 <div class="form-group">
                                     <label class="font-noraml">End Publish Date</label>
                                     <div class="input-group date">
-                                        <span class="input-group-addon"><i class="fa fa-calendar"></i></span><input  id="dtEnd" type="text" class="form-control" value="03/04/2014">
+                                        <span class="input-group-addon"><i class="fa fa-calendar"></i></span><input  id="dtEnd" type="text" class="form-control" >
                                     </div>
                                 </div>
                             </div>

@@ -28,6 +28,8 @@ class Tasks_model extends CI_Model
 
 
 
+
+
     function  begin(){
         $this->db->trans_start(); //start transaction
     }
@@ -57,7 +59,7 @@ class Tasks_model extends CI_Model
 
 
 
-    function get_task_list($id=0){
+    function get_task_list($id=0,$user_id=0,$not_accomplished_only=null){
         $sql="SELECT mQ.*,(100-mQ.per_completed)as per_non_completed
 
             FROM
@@ -148,7 +150,13 @@ class Tasks_model extends CI_Model
 
 
 
-            ) as lQ)as mQ ".($id==0?"":" WHERE mQ.task_id=$id")." ORDER BY mQ.task_id";
+            ) as lQ)as mQ WHERE mQ.is_deleted=0 AND mQ.is_active=1
+
+            ".($id==0?"":" AND mQ.task_id=$id")."
+            ".($user_id==0?"":" AND mQ.task_id IN (SELECT x.task_id FROM task_viewers as x WHERE x.user_account_id=$user_id GROUP BY x.task_id)")."
+            ".($not_accomplished_only==null?"":" AND mQ.task_id IN (SELECT x.task_id FROM task_viewers as x WHERE x.is_accomplished=0 AND x.user_account_id=$user_id GROUP BY x.task_id)")."
+
+            ORDER BY mQ.task_id";
 
 
         return $this->db->query($sql)->result();
