@@ -35,8 +35,9 @@
                 <li class="hidden"  data-alias-id="2" >
                     <a href="#" ><i class="fa fa-pencil-square-o"></i> <span class="nav-label">Publish</span><span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
-                        <li   class="hidden" data-alias-id="2-1" ><a href="Announcements" >Accouncement</a></li>
-                        <li   class="hidden" data-alias-id="2-2" ><a href="Tasks">Task</a></li>
+                        <li   class="hidden" data-alias-id="2-1" ><a href="Announcements" >
+                        <i class="fa fa-clipboard"></i>Accouncement</a></li>
+                        <li   class="hidden" data-alias-id="2-2" ><a href="Tasks"><i class="fa fa-tags"></i>Task</a></li>
 
                     </ul>
                 </li>
@@ -47,8 +48,8 @@
                  <li class="hidden"  data-alias-id="3">
                     <a href="#"><i class="fa fa-group"></i> <span class="nav-label">Masterfile</span><span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
-                        <li class="hidden" data-alias-id="3-1"><a href="UserManagement">User Management</a></li>
-                        <li  class="hidden" data-alias-id="3-2"><a href="UserGroupManagement">User Group Management</a></li>
+                        <li class="hidden" data-alias-id="3-1"><a href="UserManagement"><i class="fa fa-user"></i>User Management</a></li>
+                        <li  class="hidden" data-alias-id="3-2"><a href="UserGroupManagement"><i class="fa fa-clipboard"></i>User Group Management</a></li>
                     
                     </ul>
                 </li>
@@ -59,8 +60,10 @@
                     <a href="#"><i class="fa fa-book"></i> <span class="nav-label">Reference</span><span class="fa arrow"></span></a>
                      <ul class="nav nav-second-level">
 
-                        <li class="hidden" data-alias-id="4-1"><a href="DepartmentManagement">Department Management</a></li>    
-                        <li class="hidden" data-alias-id="4-2"><a href="CourseManagement">Course Management</a></li>
+                        <li class="hidden" data-alias-id="4-1"><a href="DepartmentManagement">
+                        <i class="fa fa-slideshare"></i>Department Management</a></li>    
+                        <li class="hidden" data-alias-id="4-2"><a href="CourseManagement">
+                        <i class="fa fa-institution"></i>Course Management</a></li>
                                
                     </ul>
                 </li>
@@ -86,9 +89,11 @@
                   <li class="hidden" data-alias-id="6">
                     <a href="#"><i class="fa fa-gears"></i> <span class="nav-label">Setting</span><span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
-                        <li class="hidden" data-alias-id="6-1"><a href="UserGroupSetting">User Group Setting</a></li>
-                        <li class="hidden" data-alias-id="6-2"><a href="">User Profile</a></li>
-                        <li class="hidden" data-alias-id="6-3"><a href="">System Setting</a></li>
+                        <li class="hidden" data-alias-id="6-1"><a href="UserGroupSetting"><i class="fa fa-gear"></i>User Group Setting</a></li>
+                        <li class="hidden" data-alias-id="6-2"><a href="">
+                        <i class="fa fa-user"></i>User Profile</a></li>
+                        <li class="hidden" data-alias-id="6-3"><a href="">
+                        <i class="fa fa-wrench"></i>System Setting</a></li>
 
                     </ul>
                 </li>
