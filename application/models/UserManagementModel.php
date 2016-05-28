@@ -173,7 +173,7 @@ class UserManagementModel extends CI_Model {
      
             $data = array(
                 'username'       => $this->input->post('username',TRUE),
-                'password'       => $this->input->post('password',TRUE),
+                'password'       =>sha1($this->input->post('password',TRUE)),
                 'email'          => $this->input->post('email',TRUE),
                 'user_group_id'   => $this->input->post('user_group_id',TRUE)
             

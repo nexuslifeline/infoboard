@@ -10,9 +10,6 @@
                              </span> <span class="text-muted text-xs block">Software Developer <b class="caret"></b></span> </span> </a>
                         <ul class="dropdown-menu animated fadeInRight m-t-xs">
                             <li><a href="#>Profile</a></li>
-                            <li><a href="#">Contacts</a></li>
-                            <li><a href="#">Mailbox</a></li>
-                            <li class="divider"></li>
                             <li><a href="#">Logout</a></li>
                         </ul>
                     </div>
@@ -36,7 +33,7 @@
                     <a href="#" ><i class="fa fa-pencil-square-o"></i> <span class="nav-label">Publish</span><span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
                         <li   class="hidden" data-alias-id="2-1" ><a href="Announcements" >
-                        <i class="fa fa-clipboard"></i>Accouncement</a></li>
+                        <i class="fa fa-clipboard"></i>Announcement</a></li>
                         <li   class="hidden" data-alias-id="2-2" ><a href="Tasks"><i class="fa fa-tags"></i>Task</a></li>
 
                     </ul>
