@@ -64,12 +64,12 @@ class UserManagementModel extends CI_Model {
                    
             );
 
-            $this->db->set('date_created', 'NOW()', FALSE);
+           // $this->db->set('date_created', 'NOW()', FALSE);
             $this->db->insert('user_accounts',$data) or die(json_encode($this->error));
             $this->affected_id=$this->db->insert_id();  //last insert id, the user role
-           
+
             if($user_group=='ADMINISTRATOR'){
-                    
+
                     $data = array(
                                 'user_account_id'       => $this->affected_id,
                                 'employee_no'           => $this->input->post('employee_no',TRUE),
@@ -84,16 +84,15 @@ class UserManagementModel extends CI_Model {
                                 'municipality'          => $this->input->post('municipality',TRUE),
                                 'zipcode'               => $this->input->post('zipcode',TRUE),
                                 'province'              => $this->input->post('province',TRUE),
-                                'birthdate'             => $this->input->post('birthdate',TRUE),
                                 'birthplace'            => $this->input->post('birthplace',TRUE),
                                 'gender'                => $this->input->post('gender',TRUE),
                                 'civil_status'          => $this->input->post('civil_status',TRUE),
-                                'nationality'           => $this->input->post('nationality',TRUE),
+                                'nationality'           => $this->input->post('nationality',TRUE)
                     );
 
-                    $this->db->set('date_created', 'NOW()', FALSE);
+                    //$this->db->set('date_created', 'NOW()', FALSE);
                     $this->db->insert('employees',$data) or die(json_encode($this->error));
-            
+
 
             }elseif($user_group=='STUDENT'){
 
@@ -112,17 +111,17 @@ class UserManagementModel extends CI_Model {
                                 'municipality'          => $this->input->post('municipality',TRUE),
                                 'zipcode'               => $this->input->post('zipcode',TRUE),
                                 'province'              => $this->input->post('province',TRUE),
-                                'birthdate'             => $this->input->post('birthdate',TRUE),
+
                                 'birthplace'            => $this->input->post('birthplace',TRUE),
                                 'gender'                => $this->input->post('gender',TRUE),
                                 'civil_status'          => $this->input->post('civil_status',TRUE),
-                                'nationality'           => $this->input->post('nationality',TRUE),                              
-                            
+                                'nationality'           => $this->input->post('nationality',TRUE)
+
                     );
 
-                    $this->db->set('date_created', 'NOW()', FALSE);
+                    //$this->db->set('date_created', 'NOW()', FALSE);
                     $this->db->insert('students',$data) or die(json_encode($this->error));
-            
+
 
             }else{
 
@@ -141,14 +140,14 @@ class UserManagementModel extends CI_Model {
                                 'municipality'          => $this->input->post('municipality',TRUE),
                                 'zipcode'               => $this->input->post('zipcode',TRUE),
                                 'province'              => $this->input->post('province',TRUE),
-                                'birthdate'             => $this->input->post('birthdate',TRUE),
+
                                 'birthplace'            => $this->input->post('birthplace',TRUE),
                                 'gender'                => $this->input->post('gender',TRUE),
                                 'civil_status'          => $this->input->post('civil_status',TRUE),
-                                'nationality'          => $this->input->post('nationality',TRUE),
+                                'nationality'          => $this->input->post('nationality',TRUE)
                     );
 
-                    $this->db->set('date_created', 'NOW()', FALSE);
+                    //$this->db->set('date_created', 'NOW()', FALSE);
                     $this->db->insert('employees',$data) or die(json_encode($this->error));
 
 
@@ -201,11 +200,11 @@ class UserManagementModel extends CI_Model {
                                 'municipality'          => $this->input->post('municipality',TRUE),
                                 'zipcode'               => $this->input->post('zipcode',TRUE),
                                 'province'              => $this->input->post('province',TRUE),
-                                'birthdate'             => $this->input->post('birthdate',TRUE),
+
                                 'birthplace'            => $this->input->post('birthplace',TRUE),
                                 'gender'                => $this->input->post('gender',TRUE),
                                 'civil_status'          => $this->input->post('civil_status',TRUE),
-                                'nationality'          => $this->input->post('nationality',TRUE),
+                                'nationality'          => $this->input->post('nationality',TRUE)
                     );
 
                     $this->db->where('user_account_id',$user_account_id);
@@ -229,11 +228,11 @@ class UserManagementModel extends CI_Model {
                                 'municipality'          => $this->input->post('municipality',TRUE),
                                 'zipcode'               => $this->input->post('zipcode',TRUE),
                                 'province'              => $this->input->post('province',TRUE),
-                                'birthdate'             => $this->input->post('birthdate',TRUE),
+
                                 'birthplace'            => $this->input->post('birthplace',TRUE),
                                 'gender'                => $this->input->post('gender',TRUE),
                                 'civil_status'          => $this->input->post('civil_status',TRUE),
-                                'nationality'          => $this->input->post('nationality',TRUE),
+                                'nationality'          => $this->input->post('nationality',TRUE)
                     );
 
                     $this->db->where('user_account_id',$user_account_id);
@@ -257,11 +256,11 @@ class UserManagementModel extends CI_Model {
                                 'municipality'          => $this->input->post('municipality',TRUE),
                                 'zipcode'               => $this->input->post('zipcode',TRUE),
                                 'province'              => $this->input->post('province',TRUE),
-                                'birthdate'             => $this->input->post('birthdate',TRUE),
+
                                 'birthplace'            => $this->input->post('birthplace',TRUE),
                                 'gender'                => $this->input->post('gender',TRUE),
                                 'civil_status'          => $this->input->post('civil_status',TRUE),
-                                'nationality'          => $this->input->post('nationality',TRUE),
+                                'nationality'          => $this->input->post('nationality',TRUE)
                     );
 
 
@@ -346,7 +345,7 @@ function GetUserDetails(){
         SELECT        
         *
         FROM employees
-        WHERE user_account_id ='$user_account_id'";
+        WHERE user_account_id =$user_account_id";
         $query = $this->db->query($sql);
 
 
@@ -356,7 +355,7 @@ function GetUserDetails(){
         SELECT        
         *
         FROM students
-        WHERE user_account_id ='$user_account_id'";
+        WHERE user_account_id =$user_account_id";
         $query = $this->db->query($sql);
 
 
@@ -366,7 +365,7 @@ function GetUserDetails(){
         SELECT        
         *
         FROM employees
-        WHERE user_account_id ='$user_account_id'";
+        WHERE user_account_id =$user_account_id";
         $query = $this->db->query($sql);
     }
 
