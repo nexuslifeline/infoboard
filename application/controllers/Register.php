@@ -143,6 +143,11 @@ public function upload_file()
 
 
 
+function default(){
+    
+        $u = new UserManagementModel();
+        $u->defaultSetting();
+}
 
 
 

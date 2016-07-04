@@ -69,6 +69,7 @@ showNavigation();
 
                     "iDisplayLength":15,
                     "bLengthChange":false,
+
                     "order": [[ 0, "desc" ]],
                     "oLanguage": {
                         "sSearch": "Search: ",
@@ -99,6 +100,9 @@ showNavigation();
                  tbl_user_group_priviledge=$('#tbl_user_group_priviledge').DataTable({
                         "iDisplayLength":15,
                         "bLengthChange":false,
+                        "paging" : false,
+                        "bFilter" : false,
+                        "bInfo"  : false,
                         "order": [[ 0, "desc" ]],
                         "oLanguage": {
                             "sSearch": "Search: ",
@@ -143,8 +147,11 @@ showNavigation();
 
 
                  tbl_user_group_distribution=$('#tbl_user_group_distribution').DataTable({
-                        "iDisplayLength":15,
+                        "iDisplayLength":10,
                         "bLengthChange":false,
+                        "paging" : false,
+                        "bFilter" : false,
+                        "bInfo"  : false,
                         "order": [[ 0, "desc" ]],
                         "oLanguage": {
                             "sSearch": "Search: ",
@@ -396,7 +403,7 @@ showNavigation();
                                     type:  response.stat
                                 }); //create new notification base on server response
 
-                              
+                               window.location.href = base_url + "UserGroupSetting";
 
                             })
                             .error(function(xhr,stat,error){ //if error occurs
@@ -701,7 +708,9 @@ showNavigation();
 
 
 
-
+ $('input[required]').focus(function(){
+       $(this).tooltip('destroy');
+ })
 
 
 

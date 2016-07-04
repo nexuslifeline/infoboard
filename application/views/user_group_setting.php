@@ -162,15 +162,8 @@
                                 <div class="ibox-title">
                                     <h5>User Priviledge Access <small class="m-l-sm">Please configure User Group Link Access.</small></h5>
                                     <div class="ibox-tools">
-                                        <a class="collapse-link">
+                                          <a class="collapse-link">
                                             <i class="fa fa-chevron-up"></i>
-                                        </a>
-                                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                                            <i class="fa fa-wrench"></i>
-                                        </a>
-
-                                        <a class="close-link">
-                                            <i class="fa fa-times"></i>
                                         </a>
                                     </div>
                                 </div>
@@ -258,15 +251,8 @@
                                 <div class="ibox-title">
                                     <h5>User Task Distribution  <small class="m-l-sm">Please configure User  Task Distribution .</small></h5>
                                     <div class="ibox-tools">
-                                        <a class="collapse-link">
+                                           <a class="collapse-link">
                                             <i class="fa fa-chevron-up"></i>
-                                        </a>
-                                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                                            <i class="fa fa-wrench"></i>
-                                        </a>
-
-                                        <a class="close-link">
-                                            <i class="fa fa-times"></i>
                                         </a>
                                     </div>
                                 </div>
@@ -362,7 +348,9 @@
 <!-- Peity -->
 <script src="assets/js/plugins/peity/jquery.peity.min.js"></script>
 
-
+   <script type="text/javascript">
+        var base_url = '<?php echo base_url(); ?>'
+    </script>
 <!--Custom JS-->
 <script src="assets/js/defined/user.group.setting.event.handlers.js"></script>
 

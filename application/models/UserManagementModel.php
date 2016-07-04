@@ -18,6 +18,11 @@ class UserManagementModel extends CI_Model {
     }
 
 
+
+
+
+
+
     function ReturnUserList(){
         $rows=array();
         $sql="SELECT CONCAT_WS('|', 
@@ -32,9 +37,12 @@ class UserManagementModel extends CI_Model {
         u.username,  
         u.email, 
         ug.user_group_title, 
-        u.date_created
+        u.date_created,
+          IF(ISNULL(a.student_id),CONCAT_WS(' ',b.emp_fname,b.emp_mname,b.emp_lname),CONCAT_WS(' ',a.stud_fname,a.stud_mname,a.stud_lname))as emp_stud_name
          FROM user_accounts as u 
          INNER JOIN user_groups as ug ON u.user_group_id = ug.user_group_id
+         LEFT JOIN students as  a ON a.user_account_id=u.user_account_id
+         LEFT JOIN employees as  b ON b.user_account_id=u.user_account_id
          WHERE u.active=1
             ";
         $query = $this->db->query($sql);
@@ -67,34 +75,8 @@ class UserManagementModel extends CI_Model {
            // $this->db->set('date_created', 'NOW()', FALSE);
             $this->db->insert('user_accounts',$data) or die(json_encode($this->error));
             $this->affected_id=$this->db->insert_id();  //last insert id, the user role
-
-            if($user_group=='ADMINISTRATOR'){
-
-                    $data = array(
-                                'user_account_id'       => $this->affected_id,
-                                'employee_no'           => $this->input->post('employee_no',TRUE),
-                                'department_id'         => $this->input->post('department_id',TRUE),
-                                'emp_fname'             => $this->input->post('emp_fname',TRUE),
-                                'emp_mname'             => $this->input->post('emp_mname',TRUE),
-                                'emp_lname'             => $this->input->post('emp_lname',TRUE),
-                                'contact_no'            => $this->input->post('contact_no',TRUE),
-                                'house_no'              => $this->input->post('house_no',TRUE),
-                                'street'                => $this->input->post('street',TRUE),
-                                'barangay'              => $this->input->post('barangay',TRUE),
-                                'municipality'          => $this->input->post('municipality',TRUE),
-                                'zipcode'               => $this->input->post('zipcode',TRUE),
-                                'province'              => $this->input->post('province',TRUE),
-                                'birthplace'            => $this->input->post('birthplace',TRUE),
-                                'gender'                => $this->input->post('gender',TRUE),
-                                'civil_status'          => $this->input->post('civil_status',TRUE),
-                                'nationality'           => $this->input->post('nationality',TRUE)
-                    );
-
-                    //$this->db->set('date_created', 'NOW()', FALSE);
-                    $this->db->insert('employees',$data) or die(json_encode($this->error));
-
-
-            }elseif($user_group=='STUDENT'){
+          
+          if($user_group=='STUDENT'){
 
 
                      $data = array(
@@ -111,7 +93,7 @@ class UserManagementModel extends CI_Model {
                                 'municipality'          => $this->input->post('municipality',TRUE),
                                 'zipcode'               => $this->input->post('zipcode',TRUE),
                                 'province'              => $this->input->post('province',TRUE),
-
+                                'birthdate' =>date('Y-m-d',strtotime($this->input->post('birthdate'))),
                                 'birthplace'            => $this->input->post('birthplace',TRUE),
                                 'gender'                => $this->input->post('gender',TRUE),
                                 'civil_status'          => $this->input->post('civil_status',TRUE),
@@ -168,7 +150,7 @@ class UserManagementModel extends CI_Model {
         try{
             //array of data to be inserted
             $this->db->trans_start(); //start transaction
-            $user_account_id=$this->input->post('id',TRUE);
+            $user_account_id  = $this->input->post('id',TRUE);
             $user_group       =   $this->input->post('user_group',TRUE);
      
             $data = array(
@@ -184,34 +166,7 @@ class UserManagementModel extends CI_Model {
             $this->affected_id=$user_account_id;
 
  
-            if($user_group=='ADMINISTRATOR'){
-                    
-                    $data = array(
-                                'user_account_id'       => $this->affected_id,
-                                'employee_no'           => $this->input->post('employee_no',TRUE),
-                                'department_id'         => $this->input->post('department_id',TRUE),
-                                'emp_fname'             => $this->input->post('emp_fname',TRUE),
-                                'emp_mname'             => $this->input->post('emp_mname',TRUE),
-                                'emp_lname'             => $this->input->post('emp_lname',TRUE),
-                                'contact_no'            => $this->input->post('contact_no',TRUE),
-                                'house_no'              => $this->input->post('house_no',TRUE),
-                                'street'                => $this->input->post('street',TRUE),
-                                'barangay'              => $this->input->post('barangay',TRUE),
-                                'municipality'          => $this->input->post('municipality',TRUE),
-                                'zipcode'               => $this->input->post('zipcode',TRUE),
-                                'province'              => $this->input->post('province',TRUE),
-
-                                'birthplace'            => $this->input->post('birthplace',TRUE),
-                                'gender'                => $this->input->post('gender',TRUE),
-                                'civil_status'          => $this->input->post('civil_status',TRUE),
-                                'nationality'          => $this->input->post('nationality',TRUE)
-                    );
-
-                    $this->db->where('user_account_id',$user_account_id);
-                    $this->db->update('employees',$data) or die(json_encode($this->error));
-                    
-
-            }elseif($user_group=='STUDENT'){
+      if($user_group=='STUDENT'){
 
 
                      $data = array(
@@ -315,11 +270,14 @@ class UserManagementModel extends CI_Model {
         u.username,  
         u.email, 
         ug.user_group_title, 
-        u.date_created
+        u.date_created,
+        IF(ISNULL(a.student_id),CONCAT_WS(' ',b.emp_fname,b.emp_mname,b.emp_lname),CONCAT_WS(' ',a.stud_fname,a.stud_mname,a.stud_lname))as emp_stud_name
          FROM user_accounts as u 
          INNER JOIN user_groups as ug ON u.user_group_id = ug.user_group_id
+         LEFT JOIN students as  a ON a.user_account_id=u.user_account_id
+         LEFT JOIN employees as  b ON b.user_account_id=u.user_account_id
          WHERE
-          user_account_id=".$this->affected_id;
+          a.user_account_id=".$this->affected_id;
         $query = $this->db->query($sql);
 
         foreach ($query->result() as $row) //this will return only 1 row
@@ -334,43 +292,34 @@ class UserManagementModel extends CI_Model {
 
 
 
-function GetUserDetails(){
+function GetUserDetails($user_account_id,$user_group){
 
-    $user_group = $this->input->post('user_group',TRUE);
-    $user_account_id   = $this->input->post('user_account_id',TRUE);
+  
 
-    if($user_group=='ADMINISTRATOR'){
-
-        $sql="
-        SELECT        
-        *
-        FROM employees
-        WHERE user_account_id =$user_account_id";
-        $query = $this->db->query($sql);
-
-
-    }else if ($user_group=='STUDENT') {
+   if($user_group=='STUDENT') {
 
         $sql="
-        SELECT        
-        *
-        FROM students
-        WHERE user_account_id =$user_account_id";
+        SELECT  *
+        FROM user_accounts AS ua
+        INNER JOIN 
+        students AS s  ON ua.user_account_id = s.user_account_id
+        WHERE s.user_account_id = $user_account_id";
         $query = $this->db->query($sql);
 
 
     }else{
 
         $sql="
-        SELECT        
-        *
-        FROM employees
-        WHERE user_account_id =$user_account_id";
+        SELECT  *
+        FROM user_accounts AS ua
+        INNER JOIN 
+        employees AS e  ON ua.user_account_id = e.user_account_id
+        WHERE e.user_account_id = $user_account_id";;
         $query = $this->db->query($sql);
     }
 
 
-return $query->result();
+    return $query->result();
 
 
 }
@@ -395,7 +344,6 @@ function checkUsernameIfExist()
         return $rows;
 
 }
-
 
 
 
@@ -429,6 +377,36 @@ function checkEmailIfExist()
 
 
 
+ function updateProfile($user_id,$user_group_title,$imagepath){
+
+
+            $data = array(
+            'user_profile'       => $imagepath
+            );
+
+    
+        if($user_group_title=='STUDENT'){
+
+                    $this->db->where('user_account_id',$user_id);
+                    $this->db->update('students',$data) or die(json_encode($this->error));
+                    $this->affected_id=$user_id;
+
+
+
+        }else{
+
+
+                    $this->db->where('user_account_id',$user_id);
+                    $this->db->update('employees',$data) or die(json_encode($this->error));
+                    $this->affected_id=$user_id;
+
+
+        }
+                
+
+
+
+ }
 
 
 
@@ -436,7 +414,5 @@ function checkEmailIfExist()
 
 
 
-}
 
-
-?>
+}?>

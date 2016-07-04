@@ -517,6 +517,23 @@ showNavigation();
         userRoleInfoModalModule.setMode("new");
         userRoleInfoModalModule.clearFields(); //clear fields
     });
+
+
+
+
+
+
+
+
+
+
+
+
+ $('input[required]').focus(function(){
+       $(this).tooltip('destroy');
+ })
+
+    
 });
 
 

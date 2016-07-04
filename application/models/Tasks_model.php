@@ -66,7 +66,8 @@ class Tasks_model extends CI_Model
 
             (SELECT lQ.*,
 
-            (lQ.emp_total_accomplished/lQ.emp_total_count*100)as per_completed
+            (lQ.emp_total_accomplished/lQ.emp_total_count*100)as per_completed,
+            CONCAT(lQ.emp_total_accomplished,' of ',lQ.emp_total_count)as completion_ratio
 
 
             FROM
@@ -82,8 +83,9 @@ class Tasks_model extends CI_Model
 
             (
                     SELECT
-                    a.*,DATE_FORMAT(submission_deadline,'%m/%d/%Y')as deadline
-                     FROM tasks as a WHERE a.is_deleted=0 AND a.is_active=1
+                    a.*,DATE_FORMAT(submission_deadline,'%m/%d/%Y')as deadline,CONCAT_WS(' ',b.emp_fname,b.emp_mname,b.emp_lname)as PostedByUser,
+                    IF(DATE_FORMAT(submission_deadline,'%m/%d/%Y')<DATE_FORMAT(NOW(),'%m/%d/%Y'),1,0)as is_expired
+                     FROM tasks as a LEFT JOIN employees as b ON a.posted_by_user=b.user_account_id WHERE a.is_deleted=0 AND a.is_active=1
             )as main
 
 
@@ -102,6 +104,8 @@ class Tasks_model extends CI_Model
                             CONCAT_WS(' ',b.emp_fname,b.emp_mname,b.emp_lname),
                             '\",\"date_accomplished\":\"',
                             a.date_accomplished,
+                            '\",\"employee_id\":\"',b.employee_id,
+                            '\",\"user_account_id\":\"',b.user_account_id,
                             '\",\"is_accomplished\":\"',
                             IF(a.is_accomplished,'1','0'),
                             '\"}'
@@ -165,14 +169,52 @@ class Tasks_model extends CI_Model
 
 
     function get_department_list(){
-        $this->db->select('department_id, department_title, department_desc');
-        $query= $this->db->get('departments');
+
+   
+        $user_group_id   = $this->session->user_group_id;
+
+
+        $sql="SELECT 
+         d.department_id, 
+         d.department_title,
+         d.department_desc
+         FROM departments as d
+
+
+         INNER JOIN task_distribution_group as td 
+         ON d.department_id = td.department_id
+         WHERE  
+         td.main_user_group_id = $user_group_id
+
+
+
+            ";
+        $query = $this->db->query($sql);
+
         return $query->result();
     }
 
     function get_employee_list(){
 
-        $query= $this->db->get('employees');
+$user_group_id   = $this->session->user_group_id;
+
+        $sql="
+SELECT * FROM `employees` as e 
+INNER JOIN task_distribution_group as ts 
+ON e.department_id = ts.department_id 
+WHERE ts.main_user_group_id = $user_group_id  
+GROUP BY e.user_account_id
+
+
+            ";
+        $query = $this->db->query($sql);
+
+
+
+
+
+
+
         return $query->result();
     }
 

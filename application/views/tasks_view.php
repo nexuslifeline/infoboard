@@ -54,6 +54,9 @@
             background: url('images/Folder_Opened.png') no-repeat center center;
         }
 
+
+
+
         .child_table{
             padding: 5px;
             border: 1px #ff0000 solid;
@@ -67,6 +70,10 @@
             animation: spin 1s infinite linear;
             -webkit-animation: spin2 1s infinite linear;
         }
+
+       table{
+           table-layout: fixed;
+       }
 
         @keyframes spin {
             from { transform: scale(1) rotate(0deg); }
@@ -125,13 +132,14 @@
             <table id="tbl_tasks_list" class="table table-striped table-bordered table-hover" >
             <thead>
             <tr>
-                <th></th>
-                <th>Title</th>
-                <th>Description</th>
-                <th>Deadline</th>
-                <th>Completed</th>
-                <th>%</th>
-                <th></th>
+                <th width="3%"></th>
+                <th width="15%">Title</th>
+                <th width="38%">Description</th>
+                <th width="8%">Deadline</th>
+                <th width="8%">Ratio</th>
+                <th width="9%">Completion %</th>
+                <th width="9%">Completed</th>
+                <th width="8%"></th>
             </tr>
             </thead>
             <tbody>
@@ -401,15 +409,25 @@
                         { "targets": [1],"data": "task_title"},
                         { "targets": [2],"data": "task_description" },
                         { "targets": [2],"data": "deadline" },
-                        { "targets": [4],"data": "emp_total_accomplished" },
+                        { "targets": [4],"data": "completion_ratio" },
                         { "targets": [5],"data": "per_completed" },
                         {
                             "targets": [6],
+                            "data": "is_completed","render" : function (data, type, full, meta){
+                                    //alert(data);
+                                    var _icon=(data=='1'?'<i class="fa fa-check-circle" style="color: green;"></i>':'<i class="fa fa-times-circle" style="color: red;"></i>');
+                                    return '<center>'+_icon+'</center>';
+                            }
+                        },
+                        {
+                            "targets": [7],
                             "data": null,
                             "render": function (data, type, full, meta){
                                 var btn_edit='<button class="btn btn-white btn-sm" name="edit_info"  style="margin-left:-15px;" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-pencil"></i> </button>';
-                                var btn_trash='<button class="btn btn-white btn-sm" name="remove_info" style="margin-right:-15px;" data-toggle="tooltip" data-placement="top" title="Move to trash"><i class="fa fa-trash-o"></i> </button>';
-                                return '<center>'+btn_edit+btn_trash+'</center>';
+                                var btn_trash='<button class="btn btn-white btn-sm" name="remove_info" style="margin-right:0px;" data-toggle="tooltip" data-placement="top" title="Move to trash"><i class="fa fa-trash-o"></i> </button>';
+                                var btn_file='<button class="btn btn-white btn-sm" name="open_file" style="margin-right:-15px;" data-toggle="tooltip" data-placement="top" title="Open task"><i class="fa fa-external-link"></i> </button>';
+
+                                return '<center>'+btn_edit+btn_trash+btn_file+'</center>';
                             }
                         }
                     ]
@@ -443,12 +461,13 @@
                         var _strRows= d.emp_details;
                         var obj=JSON.parse(_strRows);
 
-                        var _structure;
+                        var _structure='';
                         $.each(obj,function(i,value){
                             _structure+='<tr>'+
                             '<td>'+value.employee+'</td>'+
                             '<td>'+value.date_accomplished+'</td>'+
-                            '<td align="center"><i class="fa '+(value.is_accomplished=="1"?"fa-check-circle":"fa-times-circle")+'"></i></td>'+
+                            '<td align="center"><a href="#"><i style="'+(value.is_accomplished=="1"?"color:green;":"color:red;")+'" class="fa '+(value.is_accomplished=="1"?"fa-check-circle":"fa-times-circle")+'"></i></a></td>'+
+                            '<td align="center"><button name="btn_set_task_status" class="btn btn-white btn-sm" data-task-id="'+d.task_id+'" data-user-id="'+value.user_account_id+'" data-status-accomplish="'+(value.is_accomplished=="1"?"0":"1")+'">'+'<i class="fa '+(value.is_accomplished=="1"?"fa-times-circle":"fa-check-circle")+'"></i>'+(value.is_accomplished=="1"?" Revert Task":" Accomplish")+'</button></td>'+
                             '</tr>';
                         });
 
@@ -463,11 +482,11 @@
                             '<thead></thead>'+
                             '<tbody>'+
                             '<tr>'+
-                            '<td width="20%" valign="center"><span id="tbl_child_sparkline'+ d.task_id+'"></span></td>'+
+                            '<td width="20%" valign="center" align="center"><span id="tbl_child_sparkline'+ d.task_id+'"></span></td>'+
                             '<td width="70%">'+
 
                                 '<table class="table table-striped table-bordered table-hover" width="100%" border="1">'+
-                                    '<thead><tr><th>Name</th><th>Date Accomplished</th><th align=""><center>Accomplished</center></th></tr></thead>'+
+                                    '<thead><tr><th width="60%">Name</th><th  width="20%">Modified Status</th><th align=""  width="5%"><center>Status</center></th><th align=""  width="15%"><center>Action</center></th></tr></thead>'+
                                     '<tbody>'+
                                         _structure
                                     '</tbody>'+
@@ -529,6 +548,44 @@
                             $('#'+id+' td.details-control').trigger( 'click' );
                         } );
                     } );
+
+
+                    $('#tbl_tasks_list tbody').on('click','button[name="open_file"]',function(){
+                        //alert("dd");
+                        var row=$(this).closest('tr');
+                        var data=dt.row(row).data();
+                        //alert(data.task_id);
+
+                        window.open('comments?task_id='+data.task_id,'_blank');
+                    });
+
+
+                    $('#tbl_tasks_list tbody').on('click','button[name="btn_set_task_status"]',function(){
+                        var _stat=$(this).data('status-accomplish');
+                        var _taskID=$(this).data('task-id');
+                        var _userID=$(this).data('user-id');
+                        _selectRowObj=$(this).parents('table').parents('table').parents('tr').prev();
+
+
+                        //_row.click();
+                        //_row.click();
+                       // return;
+                        setStatus(_stat,_taskID,_userID).success(function(response){
+                            _selectRowObj.find('td').eq(0).click();
+                            dt.row(_selectRowObj).data(response.task_updated[0]).draw();
+
+                            console.log(response);
+                            showNotification(response);
+                            _selectRowObj.find('td').eq(0).click();
+
+
+                            if(_stat=='1'){
+
+                            }
+
+                        });
+                    });
+
 
 
 
@@ -721,6 +778,21 @@
                 $('#cbo_employees').select2('val',0);
                 $('#txt_deadline').val(moment().format('M/D/YYYY') );
             };
+
+
+
+
+            var setStatus=function(stat,task_id,user_account_id){
+                var data=[];
+                data.push({"name" : "task_id", "value" :task_id},{"name" : "mark", "value" :stat},{"name" : "user_account_id", "value" :user_account_id});
+                return $.ajax({
+                    "dataType":"json",
+                    "type":"POST",
+                    "data":data,
+                    "url":"dashboard/transaction/marking"
+                });
+            };
+
         });
 
 

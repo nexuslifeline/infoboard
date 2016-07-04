@@ -532,10 +532,54 @@ showNavigation();
 
 
 
-    $('.summernote').summernote();
+  
+     $('.summernote').summernote({
+                    height:100,
+                    onImageUpload: function(files, editor, $editable) {
+
+                        sendFile(files[0],editor,$editable);
+                    }
+                });
+
+
+
+
+ var sendFile=function(file,editor,welEditable) {
+                data = new FormData();
+                data.append("file", file);
+
+                $.ajax({
+                    url: "UserProfile/UploadProflie",
+                    data: data,
+                    cache: false,
+                    contentType: false,
+                    processData: false,
+                    type: 'POST',
+                    beforeSend: function(){
+                        var _container=welEditable.closest('.summernote');
+                    
+                    },
+                    success: function(data){
+                        //alert(data);
+                        editor.insertImage(welEditable, data);
+
+                    },
+                    error: function(jqXHR, textStatus, errorThrown) {
+                        console.log(textStatus+" "+errorThrown);
+                    },
+                    complete : function(){
+                        var _container=welEditable.closest('.summernote');
+                     
+                    }
+                });
+            }
             
     
-       
+            
+    
+        $('input[required]').focus(function(){
+       $(this).tooltip('destroy');
+ })
 
 
 

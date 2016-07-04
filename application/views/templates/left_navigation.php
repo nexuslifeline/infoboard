@@ -3,14 +3,14 @@
             <ul class="nav" id="side-menu">
                 <li class="nav-header">
                     <div class="dropdown profile-element"> <span>
-                            <img alt="image" class="img-circle" src="assets/img/anonymous.png" />
+                            <img id="sidebar_picture" style="height:100px;width:100px" alt="image" class="img-circle" src="<?php echo $this->session->user_profile; ?>" />
                              </span>
                         <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                             <span class="clear"> <span class="block m-t-xs"> <strong class="font-bold"></strong>
-                             </span> <span class="text-muted text-xs block">Software Developer <b class="caret"></b></span> </span> </a>
+                             </span> <span class="text-muted text-xs block"><?php echo $this->session->firstname.' '.$this->session->lastname ; ?> <b class="caret"></b></span> </span> </a>
                         <ul class="dropdown-menu animated fadeInRight m-t-xs">
-                            <li><a href="#>Profile</a></li>
-                            <li><a href="#">Logout</a></li>
+                            <li><a href="UserProfile">Profile</a></li>
+                            <li><a href="Login/logout_account">Logout</a></li>
                         </ul>
                     </div>
                     <div class="logo-element">
@@ -87,7 +87,8 @@
                     <a href="#"><i class="fa fa-gears"></i> <span class="nav-label">Setting</span><span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
                         <li class="hidden" data-alias-id="6-1"><a href="UserGroupSetting"><i class="fa fa-gear"></i>User Group Setting</a></li>
-                        <li class="hidden" data-alias-id="6-2"><a href="">
+                        <li class="hidden" data-alias-id="6-2">
+                        <a href="UserProfile">
                         <i class="fa fa-user"></i>User Profile</a></li>
                         <li class="hidden" data-alias-id="6-3"><a href="">
                         <i class="fa fa-wrench"></i>System Setting</a></li>

@@ -17,13 +17,17 @@ class Announcements extends MY_Controller {
         $this->_check_account_not_session();
         $this->load->model('announcementmodel');
         $this->load->model('announcementviewersmodel');
-
+        $this->load->model('Attachment_model');
+        $this->load->model('Exception_model');
 
     }
 
     function index(){
+
+        // function GetAnnouncementList($id=null,$criteria=null,$department_id=null,$posted_by_user_id=null,$show_date_range=null,$end_range_id=null,$category_id=null)
         $data['departments']=$this->announcementmodel->GetDepartmentList();
-        $data['announcements']=$this->announcementmodel->GetAnnouncementList();
+        $data['announcements']=$this->announcementmodel->GetAnnouncementList(null,null,null,$this->session->user_account_id);
+        $data['groups']=$this->announcementmodel->get_user_group_list();
         $this->load->view('announcements',$data);
     }
 
@@ -44,11 +48,15 @@ class Announcements extends MY_Controller {
          * announcement table : announcement details
          */
         $this->db->trans_start();
+
         $announce=$this->announcementmodel;
+        $m_attachments=$this->Attachment_model;
+
         $data=array(
             'announce_description'=>$this->input->post('description'),
             'post_shown_date'=>date('Y-m-d',strtotime($this->input->post('start'))),
             'post_expire_date'=>date('Y-m-d',strtotime($this->input->post('end'))),
+            'category_id'=>$this->input->post('category'),
             'post_by_user_id'=>$this->session->user_account_id
         );
 
@@ -70,6 +78,26 @@ class Announcements extends MY_Controller {
                 );
         }
         $this->announcementviewersmodel->create_batch($rows);
+
+
+
+        $attachments=$this->input->post('attachments');
+        $attach_name=$this->input->post('attach_file_name');
+        for($x=0;$x<count($attachments);$x++){
+            $m_attachments->announce_id=$announce_id;
+            $m_attachments->attachment_directory=$attachments[$x];
+            $m_attachments->file_name=$attach_name[$x];
+            $m_attachments->save();
+        }
+
+
+        $m_exception=$this->Exception_model;
+        $groups=$this->input->post('exception');
+        for($x=0;$x<count($groups);$x++){
+            $m_exception->announce_id=$announce_id;
+            $m_exception->user_group_id=$groups[$x];
+            $m_exception->save();
+        }
 
 
         //$success=$success && $viewers->create_batch( $datas );
@@ -94,6 +122,7 @@ class Announcements extends MY_Controller {
          * announcement table : announcement details
          */
         $this->db->trans_start();
+        $m_attachments=$this->Attachment_model;
 
         $announce_id=$this->input->post('id');
         $announce=$this->announcementmodel;
@@ -101,6 +130,7 @@ class Announcements extends MY_Controller {
             'announce_description'=>$this->input->post('description'),
             'post_shown_date'=>date('Y-m-d',strtotime($this->input->post('start'))),
             'post_expire_date'=>date('Y-m-d',strtotime($this->input->post('end'))),
+            'category_id'=>$this->input->post('category'),
             'post_by_user_id'=>$this->session->user_account_id
         );
 
@@ -126,6 +156,31 @@ class Announcements extends MY_Controller {
             );
         }
         $this->announcementviewersmodel->create_batch($rows);
+
+
+
+        $m_attachments->delete_via_fk($announce_id);
+
+        $attachments=$this->input->post('attachments');
+        $attach_name=$this->input->post('attach_file_name');
+
+        for($x=0;$x<count($attachments);$x++){
+            $m_attachments->announce_id=$announce_id;
+            $m_attachments->attachment_directory=$attachments[$x];
+            $m_attachments->file_name=$attach_name[$x];
+            $m_attachments->save();
+        }
+
+
+        $m_exception=$this->Exception_model;
+        $groups=$this->input->post('exception');
+
+        $m_exception->delete_via_fk($announce_id);
+        for($x=0;$x<count($groups);$x++){
+            $m_exception->announce_id=$announce_id;
+            $m_exception->user_group_id=$groups[$x];
+            $m_exception->save();
+        }
 
 
         //$success=$success && $viewers->create_batch( $datas );
@@ -162,6 +217,39 @@ class Announcements extends MY_Controller {
         }
 
         die ('{"status":"error"}');
+    }
+
+
+    function UploadAttachment(){
+
+            $data=array();
+            $files=array();
+            $directory='images/attachments/';
+
+
+
+            foreach($_FILES as $file){
+                $server_file_name=uniqid('');
+                $extension = pathinfo($file['name'], PATHINFO_EXTENSION);
+                $file_path=$directory.$server_file_name.'.'.$extension;
+                $orig_file_name=$file['name'];
+
+                if(move_uploaded_file($file['tmp_name'],$file_path)){
+                    $files[]=array('file_path'=>$file_path,'file_name'=>$orig_file_name);
+                }
+
+            }
+
+
+            $response['stat']="success";
+            $response['msg']="File successfully uploaded.";
+            $response['file_list']=$files;
+            echo json_encode($response);
+
+
+
+
+
     }
 
 

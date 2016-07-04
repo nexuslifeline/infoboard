@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title> Infoboard | Country Management </title>
+    <title> Infoboard | Dashboard</title>
 
 
      <?php include('assets/includes/global_css.html'); ?>
@@ -28,7 +28,7 @@
     <link href="assets/js/plugins/notify/pnotify.core.css" rel="stylesheet">
 
 
-
+    <link href="assets/js/plugins/contextmenu/jquery.contextMenu.css" rel="stylesheet">
 
     <style>
         .toolbar{
@@ -50,6 +50,10 @@
 
         .notes div:hover{
             cursor: pointer;
+        }
+
+        table{
+            table-layout: fixed;
         }
 
 
@@ -81,6 +85,7 @@
         <div class="wrapper wrapper-content"><!-- /main content area -->
 
 
+
         <div class="row">
             <div class="col-lg-12">
 
@@ -90,7 +95,7 @@
                     <div class="panel panel-default">
                         <div class="panel-heading">
                             <h5 class="panel-title">
-                                <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne"><i class="fa fa-book"></i> Announcements</a>
+                                <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne"><span class="text-navy"><i class="fa fa-book"></i> Announcements</span></a>
                             </h5>
                         </div>
                         <div id="collapseOne" class="panel-collapse collapse">
@@ -120,6 +125,31 @@
                                                 <small class="text-navy">Departments : <?php echo $row->DepartmentList; ?></small>
                                                 <br />
                                                 <br />
+
+
+                                                <br /><br />
+
+
+                                                <?php $attachments=json_decode($row->attachment_json); $attach_ctr=count($attachments); ?>
+
+                                                <?php if($attach_ctr>0){ ?>
+                                                    <div class="hr-line-dashed"></div>
+                                                    <p><i class="fa fa-paperclip"></i> <span id="attach_count"><?php echo $attach_ctr; ?> </span> attachments</p>
+                                                    <p>
+                                                            <span style="margin-left: 10px;">
+
+
+
+                                                                <?php  $i=0; foreach($attachments as $file){ ?>
+                                                                    <?php echo ($i>0?' , ':''); ?><a href="<?php echo $file->directory; ?>"><i class="fa fa-file"></i> <?php echo $file->file; ?></a>
+                                                                    <?php $i++; }?>
+
+                                                            </span>
+                                                    </p>
+                                                    <div class="hr-line-dashed"></div><br />
+                                                <?php  }?>
+
+
                                             </div>
 
                                         </div>
@@ -132,8 +162,144 @@
 
                     <div class="panel panel-default">
                         <div class="panel-heading">
+                            <h5 class="panel-title">
+                                <a data-toggle="collapse" data-parent="#accordion" href="#collapseFive"><span class="text-navy"><i class="fa fa-info-circle"></i> Events</span></a>
+                            </h5>
+                        </div>
+                        <div id="collapseFive" class="panel-collapse collapse">
+                            <div id="div_events" class="panel-body">
+
+                                <br />
+
+                                <?php foreach($events as $row){  ?>
+
+                                    <div class="timeline-item" data-id="<?php echo $row->announce_id; ?>">
+                                        <div class="row">
+                                            <div class="col-lg-3 col-sm-3 col-xs-3 date">
+                                                <i class="fa fa-file-text"></i>
+                                                <span id="day-posted"><?php echo $row->DayPosted; ?></span>
+                                                <br/>
+                                                <span id="time-posted"><?php echo $row->TimePosted; ?></span>
+                                                <br/>
+                                                <small id="time-description" class="text-navy"><?php echo $row->TimeDescription; ?></small>
+                                            </div>
+                                            <div class="col-lg-9 col-sm-9 col-xs-9 content no-top-border">
+
+                                                <?php echo $row->announce_description; ?>
+
+                                                <br /><br />
+                                                <small class="text-navy">Posted by : <?php echo $row->PostedBy; ?></small>
+                                                <br />
+                                                <small class="text-navy">Departments : <?php echo $row->DepartmentList; ?></small>
+                                                <br />
+                                                <br />
+
+                                                <br /><br />
+
+
+                                                <?php $attachments=json_decode($row->attachment_json); $attach_ctr=count($attachments); ?>
+
+                                                <?php if($attach_ctr>0){ ?>
+                                                    <div class="hr-line-dashed"></div>
+                                                    <p><i class="fa fa-paperclip"></i> <span id="attach_count"><?php echo $attach_ctr; ?> </span> attachments</p>
+                                                    <p>
+                                                            <span style="margin-left: 10px;">
+
+
+
+                                                                <?php  $i=0; foreach($attachments as $file){ ?>
+                                                                    <?php echo ($i>0?' , ':''); ?><a href="<?php echo $file->directory; ?>"><i class="fa fa-file"></i> <?php echo $file->file; ?></a>
+                                                                    <?php $i++; }?>
+
+                                                            </span>
+                                                    </p>
+                                                    <div class="hr-line-dashed"></div><br />
+                                                <?php  }?>
+
+
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                <?php     }  ?>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h5 class="panel-title">
+                                <a data-toggle="collapse" data-parent="#accordion" href="#collapseFour"><span class="text-navy"><i class="fa fa-newspaper-o"></i> News and Articles</span></a>
+                            </h5>
+                        </div>
+                        <div id="collapseFour" class="panel-collapse collapse">
+                            <div id="div_news" class="panel-body">
+
+                                <br />
+
+                                <?php foreach($news as $row){  ?>
+
+                                    <div class="timeline-item" data-id="<?php echo $row->announce_id; ?>">
+                                        <div class="row">
+                                            <div class="col-lg-3 col-sm-3 col-xs-3 date">
+                                                <i class="fa fa-file-text"></i>
+                                                <span id="day-posted"><?php echo $row->DayPosted; ?></span>
+                                                <br/>
+                                                <span id="time-posted"><?php echo $row->TimePosted; ?></span>
+                                                <br/>
+                                                <small id="time-description" class="text-navy"><?php echo $row->TimeDescription; ?></small>
+                                            </div>
+                                            <div class="col-lg-9 col-sm-9 col-xs-9 content no-top-border">
+
+                                                <?php echo $row->announce_description; ?>
+
+                                                <br /><br />
+                                                <small class="text-navy">Posted by : <?php echo $row->PostedBy; ?></small>
+                                                <br />
+                                                <small class="text-navy">Departments : <?php echo $row->DepartmentList; ?></small>
+                                                <br />
+                                                <br />
+
+
+
+                                                <br /><br />
+
+
+                                                <?php $attachments=json_decode($row->attachment_json); $attach_ctr=count($attachments); ?>
+
+                                                <?php if($attach_ctr>0){ ?>
+                                                    <div class="hr-line-dashed"></div>
+                                                    <p><i class="fa fa-paperclip"></i> <span id="attach_count"><?php echo $attach_ctr; ?> </span> attachments</p>
+                                                    <p>
+                                                            <span style="margin-left: 10px;">
+
+
+
+                                                                <?php  $i=0; foreach($attachments as $file){ ?>
+                                                                    <?php echo ($i>0?' , ':''); ?><a href="<?php echo $file->directory; ?>"><i class="fa fa-file"></i> <?php echo $file->file; ?></a>
+                                                                    <?php $i++; }?>
+
+                                                            </span>
+                                                    </p>
+                                                    <div class="hr-line-dashed"></div><br />
+                                                <?php  }?>
+
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                <?php     }  ?>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="<?php echo $hidden ?> panel panel-default">
+                        <div class="panel-heading">
                             <h4 class="panel-title">
-                                <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo"><i class="fa fa-laptop"></i> My Task list</a>
+                                <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo"><span class="text-navy"><i class="fa fa-laptop"></i> My Task list</span></a>
                             </h4>
                         </div>
                         <div id="collapseTwo" class="panel-collapse collapse in">
@@ -144,11 +310,11 @@
 
                                     <?php foreach($tasks as $task){ ?>
                                         <li data-id="<?php echo $task->task_id; ?>">
-                                            <div>
+                                            <div class='divnote'  style="<?php echo ($task->is_expired=='1'?'background-color:#d3d3d3;':''); ?>">
                                                 <small><?php echo  $task->posted_date; ?></small>
                                                 <h4><?php echo $task->task_title; ?></h4>
                                                 <p><?php echo $task->task_description; ?></p>
-                                                <a class="link_accomplished" data-id="<?php echo $task->task_id; ?>" href="#"><i class="fa fa-square-o "></i> Mark as Accomplished</a>
+
                                             </div>
                                         </li>
                                     <?php } ?>
@@ -163,14 +329,45 @@
                     </div>
 
 
-                    <div class="panel panel-default">
+                    <div class="<?php echo $hidden ?> panel panel-default">
                         <div class="panel-heading">
                             <h4 class="panel-title">
-                                <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree"><i class="fa fa-check"></i> Accomplished Task History</a>
+                                <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree"><span class="text-navy"><i class="fa fa-check"></i> Task History</span></a>
                             </h4>
                         </div>
                         <div id="collapseThree" class="panel-collapse collapse">
                             <div class="panel-body">
+
+
+                                <div id="div_task_accomplished_list" class="row">
+                                    <div class="col-lg-12">
+                                        <div class="table-responsive">
+
+                                            <table id="tbl_tasks_list" class="table table-striped table-bordered table-hover" >
+                                                <thead>
+                                                    <tr>
+                                                        <th width="10%">Title</th>
+                                                        <th width="60%">Description</th>
+                                                        <th width="10%">Deadline</th>
+                                                        <th width="10%">Accomplished Date</th>
+                                                        <th width="10%">Action</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+
+                                                </tbody>
+                                                <tfoot>
+
+                                                </tfoot>
+                                            </table>
+
+
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
 
 
                             </div>
@@ -254,14 +451,19 @@
 <script src="assets/js/plugins/dataTables/dataTables.tableTools.min.js"></script>
 
 
-<script type="text/javascript">
+    <!-- context menu -->
+    <script src="assets/js/plugins/contextmenu/jquery.ui.position.js"></script>
+    <script src="assets/js/plugins/contextmenu/jquery.contextMenu.js"></script>
+
+
+    <script type="text/javascript">
     
 
     
    var  showNavigation=function(a){
                 
-                var serialData=[];
-                var user_group_id = $('.user-session').attr('data-group-id');
+       var serialData=[]; var _selectRowObj;
+       var user_group_id = $('.user-session').attr('data-group-id');
             
              serialData.push({
                     name:"user_group_id",value: user_group_id
@@ -300,25 +502,135 @@
 
 
     $(document).ready(function(){
-                var _selectedTaskID;
+        var _selectedTaskID; var _selectRowObj; var dt;
+
+        var initializeContextMenu=function(){
+            $.contextMenu({
+                selector: '.notes li',
+                trigger: 'left',
+                callback: function(key, options) {
+                    //var m = "clicked: " + key;
+                    //window.console && console.log(m) || alert(m);
+                    if(key=='task'){
+                        window.open('comments?task_id='+_selectedTaskID,'_blank');
+                    }else{
+                        $('.notes .link_accomplished').click();
+                    }
+                },
+                items: {
+                    "task": {name: "Open this Task"}
+
+
+                }
+            });
+
+
+
+        };
+
+
+        var initializeControls=function(){
+
+            dt = $('#tbl_tasks_list').DataTable( {
+                "dom": '<"toolbar">frtip',
+                "bLengthChange":false,
+                "ajax": "dashboard/transaction/accomplished",
+                "columns": [
+                    { "targets": [1],"data": "task_title"},
+                    { "targets": [2],"data": "task_description" },
+                    { "targets": [3],"data": "submission_deadline" },
+                    { "targets": [4],"data": "date_accomplished" },
+                    {
+                        "targets": [5],
+                        "data": null,
+                        "render": function (data, type, full, meta){
+                            var btn_undo='<button class="btn btn-white btn-sm" id="btn_open_task"  style="margin-left:-15px;" data-toggle="tooltip" data-placement="top" title="Open Task"><i class="fa fa-external-link"></i> Open Task</button>';
+                            return '<center>'+btn_undo+'</center>';
+                        }
+                    }
+
+                ]
+            } );
+
+
+
+            initializeContextMenu();
+
+
+
+        }();
+
+
+
+
+
+
 
                 var bindEventHandlers=function(){
-                    $('.notes div').click(function(){
-                            //alert("not yet ready!");
+                    $('.notes').on('click','li',function(){
+                        _selectedTaskID=$(this).data('id');
+                        //window.open('comments?task_id='+_id,'_blank');
                     });
 
 
                     $('.notes').on('click','.link_accomplished',function(){
+
+
+                        var st = $(this).data('status-date');
+
+                    if(st==0){
+
                         _selectedTaskID=$(this).data('id');
                         $('#modal_confirmation').modal('show');
+
+                    }else{
+
+
+                    PNotify.removeAll(); //remove all notifications
+                    new PNotify({
+                        title:  "Notifications",
+                        text:  'This post has already expired !',
+                        type:  'error'
+                    });
+
+                        return;
+
+                    }
+
+
+
+                    });
+
+                    /*$('#tbl_tasks_list').on('click','#btn_undo',function(){
+                        _selectRowObj=$(this).closest('tr');
+                        var data=dt.row(_selectRowObj).data();
+                        _selectedTaskID=data.task_id;
+                        markAccomplished(0).success(function(response){
+                            //console.log(response);
+                            showNotification(response);
+                            dt.ajax.reload();
+                        });
+
+                    });*/
+
+
+
+                    $('#tbl_tasks_list').on('click','#btn_open_task',function(){
+                        _selectRowObj=$(this).closest('tr');
+                        var data=dt.row(_selectRowObj).data();
+                        _selectedTaskID=data.task_id;
+
+                        window.open('comments?task_id='+_selectedTaskID,'_blank');
                     });
 
                     $('#btn_yes').click(function(){
                         //alert(_selectedTaskID);
-                        markAccomplished().success(function(response){
+                        markAccomplished(1).success(function(response){
                             //console.log(response);
                             showNotification(response);
                             $('.notes').find('li[data-id="'+_selectedTaskID+'"]').remove();
+                            dt.ajax.reload();
+                            initializeContextMenu();
                         });
                     });
 
@@ -326,9 +638,9 @@
 
 
 
-                var markAccomplished=function(){
+                var markAccomplished=function(val){
                     var data=[];
-                    data.push({"name" : "task_id", "value" :_selectedTaskID});
+                    data.push({"name" : "task_id", "value" :_selectedTaskID},{"name" : "mark", "value" :val});
                     return $.ajax({
                         "dataType":"json",
                         "type":"POST",
@@ -336,6 +648,8 @@
                         "url":"dashboard/transaction/marking"
                     });
                 };
+
+
 
 
 
@@ -370,9 +684,10 @@
 
                                 //SOLUTION 2 : to make sure we listen to all changes made on server, all rows are return as response but heavier JSON is received and parse
 
+                                var _parent;
                                 var _newAnnounceCtr=0;
                                 $.each(announcements,function(i,value){
-                                    var _parent=$('#div_announcements');
+                                    _parent=$('#div_announcements');
                                     var _target=_parent.find('.timeline-item[data-id="'+value.announce_id+'"]');
 
                                     if(_target.length==0){
@@ -386,7 +701,50 @@
 
 
                                 if(_newAnnounceCtr>0){
-                                    showNotification({msg:_newAnnounceCtr+" new announcement recently published.",stat:"success"});
+                                    showNotification({msg:_newAnnounceCtr+" new announcement recently published.",stat:"info"});
+                                }
+
+
+
+                                var events=response.events;
+                                var _eventCtr=0;
+                                $.each(events,function(i,value){
+                                    _parent=$('#div_events');
+                                    var _target=_parent.find('.timeline-item[data-id="'+value.announce_id+'"]');
+
+                                    if(_target.length==0){
+                                        _eventCtr++;
+                                        _parent.prepend(createAnnouncementStructure(value));
+                                    }else{
+                                        _target.replaceWith(createAnnouncementStructure(value));
+                                    }
+
+                                });
+
+
+                                if(_eventCtr>0){
+                                    showNotification({msg:_eventCtr+" new events recently published.",stat:"info"});
+                                }
+
+
+                                var news=response.news;
+                                var _newsCtr=0;
+                                $.each(news,function(i,value){
+                                    _parent=$('#div_news');
+                                    var _target=_parent.find('.timeline-item[data-id="'+value.announce_id+'"]');
+
+                                    if(_target.length==0){
+                                        _newsCtr++;
+                                        _parent.prepend(createAnnouncementStructure(value));
+                                    }else{
+                                        _target.replaceWith(createAnnouncementStructure(value));
+                                    }
+
+                                });
+
+
+                                if(_newsCtr>0){
+                                    showNotification({msg:_newsCtr+" new news recently published.",stat:"info"});
                                 }
 
 
@@ -407,9 +765,11 @@
                                 });
 
                                 if(_newTaskCtr>0){
-                                    showNotification({msg:_newTaskCtr+" new task recently published.",stat:"success"});
+                                    showNotification({msg:_newTaskCtr+" new task recently published.",stat:"info"});
                                 }
 
+
+                                //initializeContextMenu();
 
                             }
                         });
@@ -424,6 +784,40 @@
 
 
                 var createAnnouncementStructure=function(row){
+                    var _structAttachment='';
+                    var _attachFiles;
+                    //alert(row.attachment_json);
+
+
+                    if(row.attachment_json!=''){
+                        _attachFiles=JSON.parse(row.attachment_json);
+                    }else{
+                        _attachFiles=null;
+                    }
+
+
+
+
+
+                    if(_attachFiles!=null){
+                        $.each(_attachFiles,function(i,value){
+                            _structAttachment+=(i>0?' , ':'')+'<a href="'+value.directory+'"><i class="fa fa-file"></i> '+value.file+'</a>';
+                        });
+                    }
+
+
+                    var _full='<div class="hr-line-dashed"></div>'+
+                        '<p><i class="fa fa-paperclip"></i> <span id="attach_count">'+(_attachFiles==null?0:_attachFiles.length)+' </span> attachments</p>'+
+                        '<p>'+
+                        '<span style="margin-left: 10px;">'+
+                        _structAttachment+
+                        '</span>'+
+                        '</p>'+
+                        '<div class="hr-line-dashed"></div><br />';
+
+
+
+
                     var _structure='<div class="timeline-item" data-id="'+row.announce_id+'">';
                     _structure+='<div class="row">';
                     _structure+='<div class="col-lg-3 col-sm-3 col-xs-3 date">';
@@ -438,7 +832,9 @@
                     _structure+=row.announce_description+'<br /><br />';
                     _structure+='<small class="text-navy">Posted by : '+row.PostedBy+'</small><br />';
                     _structure+='<small class="text-navy">Departments : '+row.DepartmentList+'</small>';
-                    _structure+='<br /><br /></div> </div></div>';
+                    _structure+='<br /><br /><br /><br />'+
+                    (_attachFiles==null?'':_full)+
+                    '</div> </div></div>';
 
                     return   _structure;
                 };
@@ -446,11 +842,11 @@
 
                 var createNotesStructure=function(row){
                     var _structure='<li data-id="'+row.task_id+'">'+
-                        '<div>'+
+                        '<div style="'+(row.is_expired=="1"?"background-color:#d3d3d3;":"")+'">'+
                                 '<small>'+row.posted_date+'</small>'+
                                 '<h4>'+row.task_title+'</h4>'+
-                                '<p>'+row.task_description+'</p><br />'+
-                                '<a class="link_accomplished" data-id="'+row.task_id+'" href="#"><i class="fa fa-square-o "></i> Mark as Accomplished</a>'+
+                                '<p>'+row.task_description+'</p><br />'/*+
+                                '<a class="link_accomplished" data-id="'+row.task_id+'" href="#"><i class="fa fa-square-o "></i> Mark as Accomplished</a>'+*/
                         '</div>'+
                         '</li>';
 
@@ -465,7 +861,11 @@
                         text:  obj.msg,
                         type:  obj.stat
                     });
-                }
+                };
+
+
+
+
 
     });
 

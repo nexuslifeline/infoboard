@@ -141,7 +141,6 @@
 
 <br>
 
-    <form id="frm-register">
 
     
  <button type="button" class="btn btn-custom" data-toggle="modal" data-target="#student-modal" style="color: white">Register</button>
@@ -156,7 +155,7 @@
 <!-- Modal content-->
 <div class="modal-content">
 
-<form id="frm-student">
+
 <div class="modal-body">
 
 <div class="row">
@@ -265,14 +264,13 @@
      </div>
 
     </div>
-    </form>
+  
 
 
 
 <div class="tab-pane fade" id="location-info" style="border-bottom:1px solid #d5d4d4;border-right:1px solid #d5d4d4;border-left:1px solid #d5d4d4;padding:15px;">
         <div class="row">
-         <form id="frm_info">
-
+        
 <div class="col-lg-6">
 
         
@@ -317,8 +315,7 @@
 
 </div>
         
-            </form>
-
+          
         </div>
     </div>
 
@@ -330,7 +327,7 @@
 
     <div class="tab-pane fade" id="login-info" style="border-bottom:1px solid #d5d4d4;border-right:1px solid #d5d4d4;border-left:1px solid #d5d4d4;padding:15px;">
         <div class="row">
-         <form id="frm_info">
+        
             <div class="col-lg-8">
 
                 <label>Username * </label>
@@ -346,20 +343,19 @@
                 <input class="form-control" type="password" name="confirm_password" id="confirm_password" placeholder="Confirm Password " data-container="body" data-trigger="manual" data-toggle="tooltip" title="Password is required." data-message="Please make sure you enter Confirm Password." required="">
 
             </div>
-            </form>
-
+           
         </div>
     </div>
+</form>
 
 
 </div>
 </div><!--form-group-->
 </div>
 </div>
-</form>
 
 <div class="modal-footer">
-    <button id="btn-save" type="button" onclick="return validations();" class="btn btn-success">Save</button>
+    <button id="btn-save" type="button"  class="btn btn-success">Save</button>
     <button id="btn-close" type="button" class="btn btn-close" data-dismiss="modal">Close</button>
 </div>
 
@@ -374,7 +370,7 @@
 
 
 
-    </form>
+  
 
   </div>
 

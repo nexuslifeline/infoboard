@@ -1,6 +1,6 @@
 					<nav class="navbar navbar-static-top white-bg" role="navigation" style="margin-bottom: 0">
 								<div class="navbar-header">
-									<a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i> </a>
+									<a id="btn-minimize" class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i> </a>
 									<form role="search" class="navbar-form-custom" method="post" action="#">
 										<div class="form-group">
 											<input type="text" placeholder="Search for something..." class="form-control" name="top-search" id="top-search">
@@ -19,7 +19,11 @@
 
 									<li>
 										<a href="Login/logout_account">
-											<i data-group-id='<?php echo $this->session->userdata("user_group_id");?>'class="user-session fa fa-sign-out"></i> Log out
+											<i data-group-id='<?php echo $this->session->userdata("user_group_id");?>'
+											data-group-title='<?php echo $this->session->userdata("user_group_title");?>'
+											data-user-id='<?php echo $this->session->userdata("user_account_id");?>'
+
+											class="user-session fa fa-sign-out"></i> Log out
 										</a>
 									</li>
 								</ul>

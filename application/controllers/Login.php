@@ -12,7 +12,11 @@ class Login extends MY_Controller {
     function index()
     {
 
+	    $login_m = new LoginProcessModel();
 
+
+  		$login_m->defaultSetting();
+        $login_m->CreateDefaultCategory();
     	$data['item'] =' Login';
     	$data['name'] =' Infoboard';
         $this->load->helper(array('form'));
@@ -21,6 +25,7 @@ class Login extends MY_Controller {
 
 
   
+
 
 
 
@@ -59,7 +64,8 @@ class Login extends MY_Controller {
 		                    'lastname'          	=> $row->lastname,
 		                    'user_group_id'         => $row->user_group_id,
 		                    'department_id'         => $row->department_id,
-		                    'user_group_title'		=> $row->user_group_title
+		                    'user_group_title'		=> $row->user_group_title,
+		                    'user_profile'          => $row->user_profile
 		                );
 		                
 		            }
@@ -97,6 +103,15 @@ class Login extends MY_Controller {
 		                  ));
 
 	}
+
+
+
+
+
+
+
+
+
 
 
 

@@ -58,7 +58,7 @@ showNavigation();
                         "username"          :       row.find('td:eq(0) input[type="checkbox"]').attr('data-username'),
                         //"country_desc"    :       row.find('td').eq(2).html(),
                         "email"             :       row.find('td:eq(0) input[type="checkbox"]').attr('data-email'),
-                        "password"          :       row.find('td:eq(0) input[type="checkbox"]').attr('data-password'),
+                        "password"          :       "",//row.find('td:eq(0) input[type="checkbox"]').attr('data-password'),
                         "user_group_id"      :       row.find('td:eq(0) input[type="checkbox"]').attr('data-user-group-id'),
                         "user_group_title"        :       row.find('td:eq(0) input[type="checkbox"]').attr('data-user-group-title'),
                     });
@@ -68,7 +68,7 @@ showNavigation();
 
 
             var serialData = [];
-            var user_group = row.find('td').eq(3).text();
+            var user_group = row.find('td').eq(4).text();
             var user_account_id    = row.find('td:eq(0) input[type="checkbox"]').val();
 
 
@@ -150,7 +150,7 @@ showNavigation();
                                     
 
                                     {
-                                        'targets': [5],
+                                        'targets': [6],
                                         'render': function (data, type, full, meta){
                                             var btn_edit='<button class="btn btn-white btn-sm" name="edit_info"  style="margin-left:-15px;" data-toggle="tooltip" data-placement="top" title="Edit Country"><i class="fa fa-pencil"></i> </button>';
                                             var btn_trash='<button class="btn btn-white btn-sm" name="remove_info" style="margin-right:-15px;" data-toggle="tooltip" data-placement="top" title="Move to trash"><i class="fa fa-trash-o"></i> </button>';
@@ -174,13 +174,16 @@ showNavigation();
                             console.log(response);
 
                             $.each(response,function(index,value){
+                                //alert(value.date_created);
                                 //alert(value.customer_id);
                                 tbl_info_list.row.add([
                                     value.hidden,
                                     value.username,
+                                    value.emp_stud_name,
                                     value.email,
                                     value.user_group_title,
                                     value.date_created,
+                                    null
 
                                 ]);
                             });
@@ -223,7 +226,7 @@ showNavigation();
 
                         var serialData = [];
                         serialData.push(
-                
+                            {name:"user_account_id",value: '0' },
                             {name:"user_group",value: 'ADMINISTRATOR'}
                        );
 
@@ -337,7 +340,7 @@ showNavigation();
                                 }); //create new notification base on server response
 
                                 var row=response.row[0];
-                                var data=[row.hidden,row.username,row.email,row.user_group_title,row.date_created,''];
+                                var data=[row.hidden,row.username,row.emp_stud_name,row.email,row.user_group_title,row.date_created,''];
                                 infoListModule.addRow(data); //add the info of recent 
                                 infoListModule.lastPage(); //go to last page
                                 clearFields(); //clear fields
@@ -365,7 +368,7 @@ showNavigation();
                                 }); //create new notification base on server response
 
                                 var row=response.row[0];
-                                var data=[row.hidden,row.username,row.email,row.user_group_title,row.date_created,''];
+                                var data=[row.hidden,row.username,row.emp_stud_name,row.username,row.email,row.user_group_title,row.date_created,''];
                                 infoListModule.updateRow(_selectedRow,data);
                                 clearFields(); //clear fields
 
@@ -664,8 +667,26 @@ showNavigation();
             
     
        
+ $('input[required]').focus(function(){
+       $(this).tooltip('destroy');
+ })
 
 
+
+
+
+
+ $('#birthdate').datepicker({
+                    todayBtn: "linked",
+                    keyboardNavigation: false,
+                    forceParse: false,
+                    calendarWeeks: true,
+                    autoclose: true
+
+                });
+
+
+ 
 
 });
 

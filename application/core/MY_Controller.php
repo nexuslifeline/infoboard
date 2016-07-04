@@ -83,6 +83,8 @@ class MY_Controller extends CI_Controller {
              redirect(base_url()."Dashboard");
         }
      }
+
+     
     public function _check_account_not_session(){
         if(!$this->session->userdata("user_account_id")){
             redirect(base_url().'Login');

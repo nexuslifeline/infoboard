@@ -2,7 +2,10 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/infoboard.iml" filepath="$PROJECT_DIR$/.idea/infoboard.iml" />
+      <module fileurl="file://file:D:/WebApps/htdocs//D:/WebApps/htdocs/system/infoboardv2/.idea/infoboard.iml" filepath="file:$PROJECT_DIR$/../..//D:/WebApps/htdocs/system/infoboardv2/.idea/infoboard.iml" />
+      <module fileurl="file://file:D:/WebApps/htdocs////169.254.249.38/infoboard/.idea/infoboard.iml" filepath="file:$PROJECT_DIR$/../..////169.254.249.38/infoboard/.idea/infoboard.iml" />
+      <module fileurl="file://file:D:/WebApps/htdocs////169.254.249.38/infoboard/.idea/infoboard.iml" filepath="file:$PROJECT_DIR$/../..////169.254.249.38/infoboard/.idea/infoboard.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/infoboardv2.iml" filepath="$PROJECT_DIR$/.idea/infoboardv2.iml" />
     </modules>
   </component>
 </project>

@@ -109,6 +109,7 @@
                                         <tr>
                                             <td></td>
                                             <td>Users</td>
+                                            <td>Name</td>
                                             <td>Email</td>
                                             <td>User Group</td>
                                             <td>Date Created</td>

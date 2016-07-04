@@ -52,6 +52,7 @@ class Tasks extends MY_Controller{
                     $task->task_title=$this->input->post('task_title');
                     $task->task_description=$this->input->post('task_description');
                     $task->submission_deadline=date('Y-m-d',strtotime($this->input->post('submission_deadline')));
+                    $task->posted_by_user=$this->session->user_account_id;
                     $task->save();
 
                     $task_id=$task->last_insert_id();
@@ -115,6 +116,7 @@ class Tasks extends MY_Controller{
             $task->task_title=$this->input->post('task_title');
             $task->task_description=$this->input->post('task_description');
             $task->submission_deadline=date('Y-m-d',strtotime($this->input->post('submission_deadline')));
+            $task->posted_by_user=$this->session->user_account_id;
             $task->modify($task_id);
 
 
@@ -165,6 +167,8 @@ class Tasks extends MY_Controller{
 
         }
 
+
+
         if($txn=='delete'){
             $task_id=$this->input->post('task_id');
 
@@ -178,6 +182,18 @@ class Tasks extends MY_Controller{
                 );
             }
 
+        }
+
+
+
+        if($txn=='completed'){
+            $task_id=$this->input->post('task_id');
+            $task->is_completed=1;
+            if($task->modify($task_id)){
+                $response['stat']='success';
+                $response['msg']='Task successfully mark as completed.';
+                echo json_encode($response);
+            }
         }
 
 

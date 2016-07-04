@@ -20,8 +20,13 @@ $(document).ready(function () {
  
     // Close ibox function
     $('.close-link:not(.binded)').addClass("binded").click( function() {
+
+
         var content = $(this).closest('div.ibox');
         content.remove();
+
+
+
     });
  
     // Small todo handler
@@ -45,7 +50,9 @@ $(document).ready(function () {
         $("body").toggleClass("mini-navbar");
         SmoothlyMenu();
     })
- 
+   
+    //$("body").toggleClass("mini-navbar");
+    
     // tooltips
     $('.tooltip-demo').tooltip({
         selector: "[data-toggle=tooltip]",
